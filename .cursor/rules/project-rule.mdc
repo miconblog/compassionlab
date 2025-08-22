@@ -56,21 +56,20 @@ const getUserById = async (id: string) => {
 
 ```typescript
 // ✅ 좋은 예
-interface ButtonProps {
-  children: React.ReactNode;
+type Props {
   variant?: 'primary' | 'secondary' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   onClick?: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   children,
   variant = 'primary',
   size = 'md',
   disabled = false,
   onClick,
-}) => {
+}:Props) => {
   return (
     <button
       className={`btn btn-${variant} btn-${size}`}
@@ -133,20 +132,15 @@ const getData = async () => {};
 
 ```typescript
 // Button/Button.tsx
-import React from 'react';
 import { cn } from '@/lib/utils';
 
-interface ButtonProps {
+type Props {
   // Props 정의
 }
 
-export const Button: React.FC<ButtonProps> = ({ ... }) => {
+export const Button = ({ ... }:Props) => {
   // 컴포넌트 로직
 };
-
-// Button/index.ts
-export { Button } from './Button';
-export type { ButtonProps } from './Button';
 ```
 
 ### 컴포넌트 분리 원칙

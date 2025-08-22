@@ -7,11 +7,13 @@ export default function Home() {
         <div className='relative z-10 text-center px-4 max-w-6xl mx-auto'>
           <h1 className='text-5xl md:text-7xl font-bold text-gray-900 mb-6'>
             <span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600'>
-              컨패션랩
+              컴패션랩
             </span>
           </h1>
           <p className='text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto'>
-            사회정서윤리학습을 통한 미래 교육의 새로운 패러다임
+            자기 자비(Self-Compassion)를 통해 자기 돌봄을 실천하고
+            <br />
+            서로를 도우며 건강하게 관계 맺는 사회
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <button className='bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:shadow-lg transition-all duration-300'>
@@ -29,11 +31,21 @@ export default function Home() {
         <div className='max-w-6xl mx-auto px-4'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl font-bold text-gray-900 mb-4'>
-              SEE Learning® 기반의 한국형 교육
+              강릉시 소재 교육 전문 회사
             </h2>
+            <p className='text-xl text-gray-600 max-w-3xl mx-auto mb-8'>
+              강릉시에 소재한 컴패션랩은 사회, 정서, 인성 교육을 제공하는 교육
+              전문 회사입니다.
+            </p>
+            <h3 className='text-3xl font-bold text-gray-900 mb-4'>
+              SEE Learning® 기반의 한국형 교육
+            </h3>
             <p className='text-xl text-gray-600 max-w-3xl mx-auto'>
-              에모리 대학교에서 개발된 SEE Learning®을 한국의 교육 환경에 맞게
-              현지화하여 제공하는 사회정서윤리학습 프로그램입니다.
+              에모리 대학교에서 개발된 SEE Learning®과 비폭력대화(NVC) 모델을
+              응용하여
+              <br />
+              요가와 명상을 교육과 접목한 몸과 마음이 모두 건강한 성장을 돕는
+              프로그램을 제공합니다.
             </p>
           </div>
 
@@ -55,11 +67,12 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                공감의 과학
+                강릉 현장 경험
               </h3>
               <p className='text-gray-600'>
-                과학적 근거에 기반한 공감 능력 개발과 사회적 연결성 증진을 위한
-                체계적인 교육
+                강릉 소재 학교에서 늘봄학교와 써클활동 강사로 활동하며
+                <br />
+                현장의 필요와 학생들의 특성을 깊이 이해
               </p>
             </div>
 
@@ -75,16 +88,16 @@ export default function Home() {
                     strokeLinecap='round'
                     strokeLinejoin='round'
                     strokeWidth={2}
-                    d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
+                    d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'
                   />
                 </svg>
               </div>
               <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                인식의 함양
+                대상별 맞춤형 프로그램
               </h3>
               <p className='text-gray-600'>
-                자기 인식과 타인에 대한 이해를 바탕으로 한 정서적 지능과 사회적
-                기술의 발달
+                유아부터 초, 중, 고등학생, 그리고 성인까지
+                <br />각 대상별 맞춤형 프로그램 운영
               </p>
             </div>
 
@@ -100,16 +113,17 @@ export default function Home() {
                     strokeLinecap='round'
                     strokeLinejoin='round'
                     strokeWidth={2}
-                    d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'
+                    d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
                   />
                 </svg>
               </div>
               <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                참여의 도구
+                요가와 명상 접목
               </h3>
               <p className='text-gray-600'>
-                실제 상황에서 적용할 수 있는 구체적인 도구와 방법론을 통한
-                실천적 학습
+                신체적 활동인 요가와 명상을 교육과 접목하여
+                <br />
+                몸과 마음이 모두 건강한 성장을 돕는 교육
               </p>
             </div>
           </div>
@@ -119,86 +133,89 @@ export default function Home() {
       {/* Research Results */}
       <section className='py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white'>
         <div className='max-w-6xl mx-auto px-4 text-center'>
-          <h2 className='text-4xl font-bold mb-8'>연구 결과에 따르면</h2>
-          <p className='text-xl mb-12'>
-            컨패션랩 프로그램은 다음과 같은 효과를 보여줍니다
-          </p>
+          <h2 className='text-4xl font-bold mb-8'>교육 철학과 전문성</h2>
+          <p className='text-xl mb-12'>컴패션랩의 교육 철학과 전문성</p>
 
           <div className='grid md:grid-cols-3 gap-8'>
             <div className='bg-white/10 backdrop-blur-sm rounded-lg p-8'>
               <div className='text-4xl font-bold text-yellow-300 mb-2'>
-                +47%
+                SEE Learning®
               </div>
               <h3 className='text-xl font-semibold mb-2'>
-                타인에 대한 공감 능력
+                미국 에모리 대학교 개발
               </h3>
               <p className='text-blue-100'>
-                다른 사람의 감정과 관점을 이해하고 공감하는 능력이 크게
-                향상됩니다
+                사회, 정서, 윤리학습 모델을 한국의 교육 환경에 맞게 현지화하여
+                제공
               </p>
             </div>
 
             <div className='bg-white/10 backdrop-blur-sm rounded-lg p-8'>
               <div className='text-4xl font-bold text-yellow-300 mb-2'>
-                +52%
+                NVC 모델
               </div>
-              <h3 className='text-xl font-semibold mb-2'>관점 수용 능력</h3>
+              <h3 className='text-xl font-semibold mb-2'>비폭력대화</h3>
               <p className='text-blue-100'>
-                다양한 관점을 이해하고 수용하는 능력이 현저히 개선됩니다
+                비폭력대화(NVC) 모델을 응용하여 효과적인 소통과 관계 맺기 교육
               </p>
             </div>
 
             <div className='bg-white/10 backdrop-blur-sm rounded-lg p-8'>
               <div className='text-4xl font-bold text-yellow-300 mb-2'>
-                +38%
+                요가 & 명상
               </div>
-              <h3 className='text-xl font-semibold mb-2'>학업 자기효능감</h3>
+              <h3 className='text-xl font-semibold mb-2'>신체적 활동 접목</h3>
               <p className='text-blue-100'>
-                학습에 대한 자신감과 자기 효능감이 향상됩니다
+                요가와 명상을 교육과 접목하여 몸과 마음이 모두 건강한 성장을
+                돕는 교육
               </p>
             </div>
           </div>
 
           <div className='mt-12 p-6 bg-white/10 backdrop-blur-sm rounded-lg'>
             <p className='text-lg'>
-              <strong>CASEL(사회정서학습협력기구)</strong>에서 2003년부터
-              검토해온 증거 기반 SEL 프로그램 중 컨패션랩은 최고 수준의 고품질
-              SEL 프로그램으로 인정받았습니다.
+              <strong>대표를 포함한 3~4명의 전문 강사</strong>들이 현재 강릉
+              소재 학교에서 늘봄학교와 써클활동 강사로 활동하며 현장의 필요와
+              학생들의 특성을 깊이 이해하고 있습니다.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Global Network */}
+      {/* Future Plans */}
       <section className='py-20 bg-white'>
         <div className='max-w-6xl mx-auto px-4'>
           <div className='text-center mb-16'>
-            <h2 className='text-4xl font-bold text-gray-900 mb-4'>
-              글로벌 컨패션랩 네트워크
-            </h2>
+            <h2 className='text-4xl font-bold text-gray-900 mb-4'>향후 계획</h2>
             <p className='text-xl text-gray-600'>
-              전 세계 41개국 이상에서 컨패션랩 프로그램을 활용하고 있습니다
+              해외 SEE Learning 학교와의 연계를 통한 글로벌 교육 확장
             </p>
           </div>
 
           <div className='grid md:grid-cols-3 gap-8 text-center'>
             <div className='p-6'>
-              <div className='text-5xl font-bold text-blue-600 mb-2'>41+</div>
-              <p className='text-xl text-gray-700'>컨패션랩을 활용하는 국가</p>
+              <div className='text-5xl font-bold text-blue-600 mb-2'>
+                해외 연계
+              </div>
+              <p className='text-xl text-gray-700'>
+                해외 SEE Learning 학교와 연계
+              </p>
             </div>
 
             <div className='p-6'>
               <div className='text-5xl font-bold text-purple-600 mb-2'>
-                500+
+                방학 연수
               </div>
-              <p className='text-xl text-gray-700'>공인된 파실리테이터</p>
+              <p className='text-xl text-gray-700'>
+                방학 중 해외 연수 프로그램 운영
+              </p>
             </div>
 
             <div className='p-6'>
               <div className='text-5xl font-bold text-green-600 mb-2'>
-                1000+
+                교환 학습
               </div>
-              <p className='text-xl text-gray-700'>국제 협력 기관</p>
+              <p className='text-xl text-gray-700'>교환 학습 프로그램 운영</p>
             </div>
           </div>
         </div>
@@ -342,45 +359,49 @@ export default function Home() {
         <div className='max-w-6xl mx-auto px-4'>
           <div className='grid md:grid-cols-4 gap-8'>
             <div>
-              <h3 className='text-2xl font-bold mb-4'>컨패션랩</h3>
+              <h3 className='text-2xl font-bold mb-4'>컴패션랩</h3>
               <p className='text-gray-400'>
-                사회정서윤리학습을 통한 미래 교육의 새로운 패러다임
+                강릉시 소재 교육 전문 회사
+                <br />
+                자기 자비를 통해 자기 돌봄을 실천하고 서로를 도우며 건강하게
+                관계 맺는 사회
               </p>
             </div>
 
             <div>
               <h4 className='text-lg font-semibold mb-4'>프로그램</h4>
               <ul className='space-y-2 text-gray-400'>
-                <li>기초 교육</li>
-                <li>심화 과정</li>
-                <li>교사 연수</li>
-                <li>커리큘럼</li>
+                <li>유아 프로그램</li>
+                <li>초등학생 프로그램</li>
+                <li>중학생 프로그램</li>
+                <li>고등학생 프로그램</li>
+                <li>성인 프로그램</li>
               </ul>
             </div>
 
             <div>
-              <h4 className='text-lg font-semibold mb-4'>지원</h4>
+              <h4 className='text-lg font-semibold mb-4'>교육 철학</h4>
               <ul className='space-y-2 text-gray-400'>
-                <li>자주 묻는 질문</li>
-                <li>문의하기</li>
-                <li>기술 지원</li>
-                <li>커뮤니티</li>
+                <li>SEE Learning®</li>
+                <li>NVC(비폭력대화)</li>
+                <li>요가와 명상</li>
+                <li>강릉 현장 경험</li>
               </ul>
             </div>
 
             <div>
-              <h4 className='text-lg font-semibold mb-4'>연결</h4>
+              <h4 className='text-lg font-semibold mb-4'>연락처</h4>
               <ul className='space-y-2 text-gray-400'>
-                <li>뉴스레터 구독</li>
-                <li>소셜 미디어</li>
-                <li>블로그</li>
-                <li>이벤트</li>
+                <li>강릉시 소재</li>
+                <li>늘봄학교 활동</li>
+                <li>써클활동</li>
+                <li>문의 및 신청</li>
               </ul>
             </div>
           </div>
 
           <div className='border-t border-gray-800 mt-8 pt-8 text-center text-gray-400'>
-            <p>&copy; 2024 컨패션랩. 모든 권리 보유.</p>
+            <p>&copy; 2024 컴패션랩. 모든 권리 보유.</p>
           </div>
         </div>
       </footer>

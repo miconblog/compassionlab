@@ -4,10 +4,11 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className='relative py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white'>
         <div className='max-w-6xl mx-auto px-4 text-center'>
-          <h1 className='text-5xl font-bold mb-6'>컨패션랩 소개</h1>
+          <h1 className='text-5xl font-bold mb-6'>컴패션랩 소개</h1>
           <p className='text-xl text-blue-100 max-w-3xl mx-auto'>
-            SEE Learning®을 기반으로 한 한국형 사회정서윤리학습 프로그램으로,
-            미래 교육의 새로운 패러다임을 제시합니다.
+            강릉시 소재 교육 전문 회사로, 자기 자비를 통해 자기 돌봄을 실천하고
+            <br />
+            서로를 도우며 건강하게 관계 맺는 사회를 만들어갑니다.
           </p>
         </div>
       </section>
@@ -21,12 +22,16 @@ export default function AboutPage() {
                 우리의 미션
               </h2>
               <p className='text-lg text-gray-600 mb-6'>
-                컨패션랩은 모든 학생들이 공감, 인식, 참여의 도구를 갖춘 글로벌
-                시민으로 성장할 수 있도록 돕는 것을 목표로 합니다.
+                자기 자비와 자기 돌봄을 통해 몸과 마음 모두 건강한 개인 만들기
               </p>
               <p className='text-lg text-gray-600 mb-6'>
-                에모리 대학교에서 개발된 SEE Learning®의 과학적 근거를
-                바탕으로, 한국의 교육 환경과 문화에 맞게 현지화하여 제공합니다.
+                소통하고 성장하는 따뜻한 가정 만들기
+              </p>
+              <p className='text-lg text-gray-600 mb-6'>
+                가정과 학교가 함께하는 사회, 정서, 인성 교육
+              </p>
+              <p className='text-lg text-gray-600 mb-6'>
+                성인 및 지역사회를 위한 교육
               </p>
               <div className='space-y-4'>
                 <div className='flex items-center'>
@@ -94,26 +99,26 @@ export default function AboutPage() {
               <div className='space-y-6'>
                 <div>
                   <h4 className='text-lg font-semibold text-blue-600 mb-2'>
-                    공감 (Compassion)
+                    강릉 현장 경험
                   </h4>
                   <p className='text-gray-600'>
-                    타인에 대한 이해와 공감을 통해 더 나은 사회를 만듭니다.
+                    강릉 소재 학교에서 늘봄학교와 써클활동 강사로 활동
                   </p>
                 </div>
                 <div>
                   <h4 className='text-lg font-semibold text-purple-600 mb-2'>
-                    인식 (Awareness)
+                    대상별 맞춤형
                   </h4>
                   <p className='text-gray-600'>
-                    자기와 타인에 대한 깊은 인식을 통해 성장합니다.
+                    유아부터 성인까지 각 대상별 맞춤형 프로그램 운영
                   </p>
                 </div>
                 <div>
                   <h4 className='text-lg font-semibold text-green-600 mb-2'>
-                    참여 (Engagement)
+                    교육 전문성
                   </h4>
                   <p className='text-gray-600'>
-                    실천적 도구를 통해 긍정적인 변화에 참여합니다.
+                    현장의 필요와 학생들의 특성을 깊이 이해하는 전문성
                   </p>
                 </div>
               </div>
@@ -218,10 +223,10 @@ export default function AboutPage() {
         <div className='max-w-6xl mx-auto px-4'>
           <div className='text-center mb-16'>
             <h2 className='text-4xl font-bold text-gray-900 mb-4'>
-              한국형 현지화
+              강릉 지역 특성
             </h2>
             <p className='text-xl text-gray-600'>
-              한국의 교육 환경과 문화에 맞게 최적화된 컨패션랩
+              강릉 지역의 교육 환경과 문화에 맞게 최적화된 컴패션랩
             </p>
           </div>
 
@@ -243,11 +248,11 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                한국어 커리큘럼
+                강릉 지역 교육
               </h3>
               <p className='text-gray-600'>
-                한국어로 완전히 현지화된 교육 자료와 한국 문화에 맞는 예시와
-                사례를 제공합니다.
+                강릉 지역의 교육 환경과 학생들의 특성에 맞는 맞춤형 교육 자료와
+                프로그램을 제공합니다.
               </p>
             </div>
 
@@ -268,11 +273,11 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                한국 교육 환경
+                현장 중심 활동
               </h3>
               <p className='text-gray-600'>
-                한국의 교육 제도와 학교 환경에 맞게 조정된 프로그램 구조와 운영
-                방식을 제공합니다.
+                강릉 소재 학교에서 늘봄학교와 써클활동을 통해 현장 중심의 교육
+                프로그램을 운영합니다.
               </p>
             </div>
 
@@ -293,11 +298,11 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                한국 문화 반영
+                지역사회 기여
               </h3>
               <p className='text-gray-600'>
-                한국의 전통 문화와 가치관을 반영하여 더욱 친숙하고 효과적인
-                학습이 가능합니다.
+                강릉 지역사회의 교육 발전에 기여하며, 지역의 특성을 반영한
+                효과적인 학습 환경을 제공합니다.
               </p>
             </div>
           </div>
@@ -308,49 +313,51 @@ export default function AboutPage() {
       <section className='py-20 bg-gray-50'>
         <div className='max-w-6xl mx-auto px-4'>
           <div className='text-center mb-16'>
-            <h2 className='text-4xl font-bold text-gray-900 mb-4'>우리 팀</h2>
+            <h2 className='text-4xl font-bold text-gray-900 mb-4'>
+              전문 강사진
+            </h2>
             <p className='text-xl text-gray-600'>
-              컨패션랩을 이끌어가는 전문가들
+              대표를 포함한 3~4명의 전문 강사들이 강릉 현장에서 활동합니다
             </p>
           </div>
 
           <div className='grid md:grid-cols-3 gap-8'>
             <div className='text-center'>
               <div className='w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center'>
-                <span className='text-3xl font-bold text-white'>교육</span>
+                <span className='text-3xl font-bold text-white'>대표</span>
               </div>
               <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                교육 전문가
+                대표 강사
               </h3>
               <p className='text-gray-600'>
-                한국 교육 현장에서 20년 이상의 경험을 가진 교육 전문가들이
-                프로그램을 개발하고 운영합니다.
+                컴패션랩의 대표이자 핵심 강사로, 강릉 지역 교육 현장에서
+                늘봄학교와 써클활동을 이끌어가고 있습니다.
               </p>
             </div>
 
             <div className='text-center'>
               <div className='w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center'>
-                <span className='text-3xl font-bold text-white'>연구</span>
+                <span className='text-3xl font-bold text-white'>전문</span>
               </div>
               <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                연구진
+                전문 강사진
               </h3>
               <p className='text-gray-600'>
-                사회정서학습과 심리학 분야의 박사급 연구진이 프로그램의 효과성을
-                지속적으로 연구하고 개선합니다.
+                3~4명의 전문 강사들이 각자의 전문 분야에서 강릉 소재 학교의 교육
+                프로그램을 운영하고 있습니다.
               </p>
             </div>
 
             <div className='text-center'>
               <div className='w-32 h-32 bg-gradient-to-br from-green-400 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center'>
-                <span className='text-3xl font-bold text-white'>협력</span>
+                <span className='text-3xl font-bold text-white'>현장</span>
               </div>
               <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-                국제 협력팀
+                현장 경험
               </h3>
               <p className='text-gray-600'>
-                에모리 대학교와 글로벌 네트워크와의 지속적인 협력을 통해 최신
-                연구 결과를 반영합니다.
+                강릉 지역 학교에서의 실제 교육 경험을 바탕으로 학생들의 특성과
+                현장의 필요를 깊이 이해하고 있습니다.
               </p>
             </div>
           </div>
@@ -361,10 +368,11 @@ export default function AboutPage() {
       <section className='py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white'>
         <div className='max-w-4xl mx-auto px-4 text-center'>
           <h2 className='text-4xl font-bold mb-6'>
-            컨패션랩과 함께 시작하세요
+            컴패션랩과 함께 시작하세요
           </h2>
           <p className='text-xl mb-8 text-blue-100'>
-            사회정서윤리학습을 통해 더 나은 미래를 만들어갑니다
+            자기 자비를 통해 자기 돌봄을 실천하고 서로를 도우며 건강하게 관계
+            맺는 사회를 만들어갑니다
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             <button className='bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300'>

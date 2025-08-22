@@ -1,3 +1,4 @@
+import Navigation from '@/components/Navigation';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -5,15 +6,16 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: '컨패션랩 - 사회정서윤리학습을 통한 미래 교육',
+  title: '컴패션랩 - 자기 자비를 통한 자기 돌봄의 교육',
   description:
-    'SEE Learning® 기반의 한국형 사회정서윤리학습 프로그램. 공감의 과학, 인식의 함양, 참여의 도구를 통해 미래 교육의 새로운 패러다임을 제시합니다.',
+    '강릉시 소재 교육 전문 회사. SEE Learning®과 NVC 모델을 응용하여 요가와 명상을 접목한 몸과 마음이 모두 건강한 성장을 돕는 교육을 제공합니다.',
   keywords:
-    '사회정서윤리학습, SEE Learning, 공감교육, 정서지능, 한국교육, 미래교육',
-  authors: [{ name: '컨패션랩' }],
+    '컴패션랩, 강릉교육, SEE Learning, NVC, 비폭력대화, 요가, 명상, 사회정서교육, 자기돌봄',
+  authors: [{ name: '컴패션랩' }],
   openGraph: {
-    title: '컨패션랩 - 사회정서윤리학습을 통한 미래 교육',
-    description: 'SEE Learning® 기반의 한국형 사회정서윤리학습 프로그램',
+    title: '컴패션랩 - 자기 자비를 통한 자기 돌봄의 교육',
+    description:
+      '강릉시 소재 교육 전문 회사. SEE Learning®과 NVC 모델을 응용한 교육',
     type: 'website',
     locale: 'ko_KR',
   },
@@ -26,7 +28,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ko'>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navigation />
+        <main className='pt-16'>{children}</main>
+      </body>
     </html>
   );
 }
