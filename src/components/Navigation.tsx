@@ -13,7 +13,7 @@ export default function Navigation() {
     { name: '소개', href: '/about' },
     { name: '프로그램', href: '/programs' },
     { name: '교육철학', href: '/philosophy' },
-    { name: '해외연수', href: '/global' },
+    { name: '해외연수', href: '/global-programs' },
     { name: '문의', href: '/contact' },
   ];
 

@@ -266,7 +266,7 @@ export default function ContactPage() {
         <div className='max-w-4xl mx-auto'>
           <div className='space-y-4'>
             {faqs.map((faq, index) => (
-              <Card key={index}>
+              <Card key={`faq-${index}-${faq.question}`}>
                 <CardContent className='p-6'>
                   <details className='group'>
                     <summary className='flex justify-between items-center cursor-pointer list-none'>
