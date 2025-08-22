@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className='min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100'>
+    <div className='min-h-screen'>
       {/* Hero Section */}
       <section className='relative py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white'>
         <div className='max-w-6xl mx-auto px-4 text-center'>
