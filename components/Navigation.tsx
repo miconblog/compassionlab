@@ -13,7 +13,7 @@ export default function Navigation() {
     { name: '소개', href: '/about' },
     { name: '프로그램', href: '/programs' },
     { name: '교육철학', href: '/philosophy' },
-    { name: '해외연수', href: '/global-programs' },
+    // { name: '해외연수', href: '/global-programs' },
     { name: '문의', href: '/contact' },
   ];
 
@@ -30,10 +30,10 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-amber-400 to-orange-400 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-gray-800 to-black rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">컴</span>
             </div>
-            <span className="text-xl font-bold text-amber-800">컴패션랩</span>
+            <span className="text-xl font-bold text-gray-900">컴패션랩</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -43,9 +43,7 @@ export default function Navigation() {
                 key={item.name}
                 href={item.href}
                 className={`text-sm font-medium transition-colors duration-200 ${
-                  isActive(item.href)
-                    ? 'text-amber-500 border-b-2 border-amber-500'
-                    : 'text-amber-600 hover:text-amber-500'
+                  isActive(item.href) ? 'text-black border-b-2 border-black' : 'text-gray-700 hover:text-black'
                 }`}
               >
                 {item.name}
@@ -57,7 +55,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-amber-600 hover:text-amber-500 focus:outline-none focus:text-amber-500"
+              className="text-gray-700 hover:text-black focus:outline-none focus:text-black"
               aria-label={isMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
@@ -82,9 +80,7 @@ export default function Navigation() {
                   key={item.name}
                   href={item.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    isActive(item.href)
-                      ? 'text-amber-500 bg-amber-50'
-                      : 'text-amber-600 hover:text-amber-500 hover:bg-amber-50'
+                    isActive(item.href) ? 'text-black bg-gray-100' : 'text-gray-700 hover:text-black hover:bg-gray-100'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >

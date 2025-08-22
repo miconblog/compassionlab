@@ -45,7 +45,7 @@ export default function Home() {
     <div className="min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative py-20 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-amber-300/30 to-orange-300/30"></div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold text-amber-800 mb-6">

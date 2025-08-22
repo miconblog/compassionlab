@@ -290,32 +290,32 @@ export default function ProgramsPage() {
       </Section>
 
       {/* 프로그램 효과성 */}
-      <Section background="blue">
+      <Section background="white">
         <SectionHeader title="프로그램 효과성" subtitle="과학적 근거에 기반한 교육 프로그램의 성과" />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="text-center text-white">
-            <div className="text-4xl font-bold text-yellow-300 mb-2">85%</div>
-            <h3 className="text-xl font-semibold mb-2">정서 조절 능력 향상</h3>
-            <p className="text-amber-100">스트레스 상황에서의 정서 조절 능력이 크게 향상됩니다</p>
+          <div className="text-center bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg p-6 shadow-lg">
+            <div className="text-5xl font-bold text-white mb-3">85%</div>
+            <h3 className="text-xl font-semibold mb-3 text-white">정서 조절 능력 향상</h3>
+            <p className="text-white/95 leading-relaxed">스트레스 상황에서의 정서 조절 능력이 크게 향상됩니다</p>
           </div>
 
-          <div className="text-center text-white">
-            <div className="text-4xl font-bold text-yellow-300 mb-2">92%</div>
-            <h3 className="text-xl font-semibold mb-2">공감 능력 증진</h3>
-            <p className="text-amber-100">타인에 대한 이해와 공감 능력이 현저히 증진됩니다</p>
+          <div className="text-center bg-gradient-to-br from-orange-500 to-red-500 rounded-lg p-6 shadow-lg">
+            <div className="text-5xl font-bold text-white mb-3">92%</div>
+            <h3 className="text-xl font-semibold mb-3 text-white">공감 능력 증진</h3>
+            <p className="text-white/95 leading-relaxed">타인에 대한 이해와 공감 능력이 현저히 증진됩니다</p>
           </div>
 
-          <div className="text-center text-white">
-            <div className="text-4xl font-bold text-yellow-300 mb-2">78%</div>
-            <h3 className="text-xl font-semibold mb-2">갈등 해결 능력</h3>
-            <p className="text-amber-100">NVC를 활용한 갈등 해결 능력이 향상됩니다</p>
+          <div className="text-center bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg p-6 shadow-lg">
+            <div className="text-5xl font-bold text-white mb-3">78%</div>
+            <h3 className="text-xl font-semibold mb-3 text-white">갈등 해결 능력</h3>
+            <p className="text-white/95 leading-relaxed">NVC를 활용한 갈등 해결 능력이 향상됩니다</p>
           </div>
 
-          <div className="text-center text-white">
-            <div className="text-4xl font-bold text-yellow-300 mb-2">88%</div>
-            <h3 className="text-xl font-semibold mb-2">자기 효능감</h3>
-            <p className="text-amber-100">학습과 생활에 대한 자기 효능감이 향상됩니다</p>
+          <div className="text-center bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg p-6 shadow-lg">
+            <div className="text-5xl font-bold text-white mb-3">88%</div>
+            <h3 className="text-xl font-semibold mb-3 text-white">자기 효능감</h3>
+            <p className="text-white/95 leading-relaxed">학습과 생활에 대한 자기 효능감이 향상됩니다</p>
           </div>
         </div>
       </Section>
