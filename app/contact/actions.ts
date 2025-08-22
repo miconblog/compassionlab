@@ -1,8 +1,7 @@
 'use server';
 
+import { type ApplicationFormData, type InquiryFormData, supabase } from 'lib/supabase';
 import { revalidatePath } from 'next/cache';
-
-import { type ApplicationFormData, type InquiryFormData, supabase } from '@/lib/supabase';
 
 // 프로그램 신청 폼 액션
 export async function submitApplicationForm(formData: FormData) {
