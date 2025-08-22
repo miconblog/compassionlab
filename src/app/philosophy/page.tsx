@@ -1,5 +1,5 @@
-import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import Section, { SectionHeader } from '@/components/ui/Section';
 
 export default function PhilosophyPage() {
@@ -25,76 +25,83 @@ export default function PhilosophyPage() {
         />
 
         <div className='grid md:grid-cols-3 gap-8'>
-          <Card variant='elevated' className='text-center'>
-            <div className='w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4'>
-              <svg
-                className='w-8 h-8 text-white'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
-                />
-              </svg>
-            </div>
-            <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-              과학적 근거
-            </h3>
-            <p className='text-gray-600'>
-              신경과학과 심리학 연구에 기반한 검증된 교육 방법론을 적용합니다
-            </p>
+          <Card className='text-center'>
+            <CardContent className='p-6'>
+              <div className='w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4'>
+                <svg
+                  className='w-8 h-8 text-white'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
+                  />
+                </svg>
+              </div>
+              <h3 className='text-xl font-semibold text-gray-900 mb-2'>
+                과학적 근거
+              </h3>
+              <p className='text-gray-600'>
+                신경과학과 심리학 연구에 기반한 검증된 교육 방법론을 적용합니다
+              </p>
+            </CardContent>
           </Card>
 
-          <Card variant='elevated' className='text-center'>
-            <div className='w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4'>
-              <svg
-                className='w-8 h-8 text-white'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
-                />
-              </svg>
-            </div>
-            <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-              통합적 접근
-            </h3>
-            <p className='text-gray-600'>
-              지적, 정서적, 신체적 영역을 통합하여 전인적 성장을 돕습니다
-            </p>
+          <Card className='text-center'>
+            <CardContent className='p-6'>
+              <div className='w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4'>
+                <svg
+                  className='w-8 h-8 text-white'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
+                  />
+                </svg>
+              </div>
+              <h3 className='text-xl font-semibold text-gray-900 mb-2'>
+                통합적 접근
+              </h3>
+              <p className='text-gray-600'>
+                지적, 정서적, 신체적 영역을 통합하여 전인적 성장을 돕습니다
+              </p>
+            </CardContent>
           </Card>
 
-          <Card variant='elevated' className='text-center'>
-            <div className='w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4'>
-              <svg
-                className='w-8 h-8 text-white'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'
-                />
-              </svg>
-            </div>
-            <h3 className='text-xl font-semibold text-gray-900 mb-2'>
-              실천적 도구
-            </h3>
-            <p className='text-gray-600'>
-              일상생활에서 바로 적용할 수 있는 구체적인 도구와 방법을 제공합니다
-            </p>
+          <Card className='text-center'>
+            <CardContent className='p-6'>
+              <div className='w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4'>
+                <svg
+                  className='w-8 h-8 text-white'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'
+                  />
+                </svg>
+              </div>
+              <h3 className='text-xl font-semibold text-gray-900 mb-2'>
+                실천적 도구
+              </h3>
+              <p className='text-gray-600'>
+                일상생활에서 바로 적용할 수 있는 구체적인 도구와 방법을
+                제공합니다
+              </p>
+            </CardContent>
           </Card>
         </div>
       </Section>
@@ -322,97 +329,103 @@ export default function PhilosophyPage() {
           </div>
 
           <div className='grid gap-6'>
-            <Card variant='elevated'>
-              <div className='flex items-start'>
-                <div className='w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0'>
-                  <svg
-                    className='w-6 h-6 text-white'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
-                    />
-                  </svg>
+            <Card>
+              <CardContent className='p-6'>
+                <div className='flex items-start'>
+                  <div className='w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0'>
+                    <svg
+                      className='w-6 h-6 text-white'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className='font-semibold text-gray-900 mb-2'>
+                      아동 요가의 효과
+                    </h4>
+                    <ul className='text-gray-600 text-sm space-y-1'>
+                      <li>• 신체 발달과 균형 감각 향상</li>
+                      <li>• 집중력과 주의력 증진</li>
+                      <li>• 정서적 안정과 자기 조절 능력 향상</li>
+                      <li>• 자신감과 자기 효능감 증진</li>
+                    </ul>
+                  </div>
                 </div>
-                <div>
-                  <h4 className='font-semibold text-gray-900 mb-2'>
-                    아동 요가의 효과
-                  </h4>
-                  <ul className='text-gray-600 text-sm space-y-1'>
-                    <li>• 신체 발달과 균형 감각 향상</li>
-                    <li>• 집중력과 주의력 증진</li>
-                    <li>• 정서적 안정과 자기 조절 능력 향상</li>
-                    <li>• 자신감과 자기 효능감 증진</li>
-                  </ul>
-                </div>
-              </div>
+              </CardContent>
             </Card>
 
-            <Card variant='elevated'>
-              <div className='flex items-start'>
-                <div className='w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0'>
-                  <svg
-                    className='w-6 h-6 text-white'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
-                    />
-                  </svg>
+            <Card>
+              <CardContent className='p-6'>
+                <div className='flex items-start'>
+                  <div className='w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0'>
+                    <svg
+                      className='w-6 h-6 text-white'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className='font-semibold text-gray-900 mb-2'>
+                      명상의 교육적 가치
+                    </h4>
+                    <ul className='text-gray-600 text-sm space-y-1'>
+                      <li>• 자기 인식과 정서적 자각 증진</li>
+                      <li>• 스트레스 관리와 정서 조절 능력 향상</li>
+                      <li>• 공감 능력과 사회적 연결성 증진</li>
+                      <li>• 학습 능력과 창의성 향상</li>
+                    </ul>
+                  </div>
                 </div>
-                <div>
-                  <h4 className='font-semibold text-gray-900 mb-2'>
-                    명상의 교육적 가치
-                  </h4>
-                  <ul className='text-gray-600 text-sm space-y-1'>
-                    <li>• 자기 인식과 정서적 자각 증진</li>
-                    <li>• 스트레스 관리와 정서 조절 능력 향상</li>
-                    <li>• 공감 능력과 사회적 연결성 증진</li>
-                    <li>• 학습 능력과 창의성 향상</li>
-                  </ul>
-                </div>
-              </div>
+              </CardContent>
             </Card>
 
-            <Card variant='elevated'>
-              <div className='flex items-start'>
-                <div className='w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0'>
-                  <svg
-                    className='w-6 h-6 text-white'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={2}
-                      d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'
-                    />
-                  </svg>
+            <Card>
+              <CardContent className='p-6'>
+                <div className='flex items-start'>
+                  <div className='w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0'>
+                    <svg
+                      className='w-6 h-6 text-white'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className='font-semibold text-gray-900 mb-2'>
+                      통합적 접근의 효과
+                    </h4>
+                    <ul className='text-gray-600 text-sm space-y-1'>
+                      <li>• 몸과 마음의 균형 잡힌 성장</li>
+                      <li>• 전인적 교육의 실현</li>
+                      <li>• 지속 가능한 건강한 습관 형성</li>
+                      <li>• 일상생활에서의 실천 가능성</li>
+                    </ul>
+                  </div>
                 </div>
-                <div>
-                  <h4 className='font-semibold text-gray-900 mb-2'>
-                    통합적 접근의 효과
-                  </h4>
-                  <ul className='text-gray-600 text-sm space-y-1'>
-                    <li>• 몸과 마음의 균형 잡힌 성장</li>
-                    <li>• 전인적 교육의 실현</li>
-                    <li>• 지속 가능한 건강한 습관 형성</li>
-                    <li>• 일상생활에서의 실천 가능성</li>
-                  </ul>
-                </div>
-              </div>
+              </CardContent>
             </Card>
           </div>
         </div>

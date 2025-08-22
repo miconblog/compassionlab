@@ -40,12 +40,22 @@ cp env.example .env.local
 `.env.local` 파일을 열고 필요한 환경 변수들을 설정하세요:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+# Supabase 설정
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url_here
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+
+# 이메일 서비스 설정 (선택사항)
+# SENDGRID_API_KEY=your_sendgrid_api_key_here
+# RESEND_API_KEY=your_resend_api_key_here
 ```
 
-### 4. 개발 서버 실행
+### 4. Supabase 데이터베이스 설정
+
+1. [Supabase](https://supabase.com)에서 새 프로젝트를 생성하세요
+2. SQL Editor에서 `supabase-schema.sql` 파일의 내용을 실행하세요
+3. Settings > API에서 URL과 anon key를 복사하여 환경 변수에 설정하세요
+
+### 5. 개발 서버 실행
 
 ```bash
 npm run dev
