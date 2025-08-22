@@ -269,10 +269,7 @@ export type ApplicationFormData = {
 };
 
 export const saveApplicationForm = async (data: ApplicationFormData) => {
-  const { data: result, error } = await supabase
-    .from('applications')
-    .insert([data])
-    .select();
+  const { data: result, error } = await supabase.from('applications').insert([data]).select();
 
   if (error) {
     throw new Error(`신청서 저장 중 오류가 발생했습니다: ${error.message}`);
@@ -734,13 +731,13 @@ type UserState = {
   setError: (error: string | null) => void;
 };
 
-export const useUserStore = create<UserState>(set => ({
+export const useUserStore = create<UserState>((set) => ({
   user: null,
   isLoading: false,
   error: null,
-  setUser: user => set({ user }),
-  setLoading: isLoading => set({ isLoading }),
-  setError: error => set({ error }),
+  setUser: (user) => set({ user }),
+  setLoading: (isLoading) => set({ isLoading }),
+  setError: (error) => set({ error }),
 }));
 ```
 
@@ -782,11 +779,7 @@ export const userApi = {
 
   // 사용자 생성
   createUser: async (userData: CreateUserData): Promise<User> => {
-    const { data, error } = await supabase
-      .from('users')
-      .insert(userData)
-      .select()
-      .single();
+    const { data, error } = await supabase.from('users').insert(userData).select().single();
 
     if (error) throw new Error(error.message);
     return data;
@@ -794,12 +787,7 @@ export const userApi = {
 
   // 사용자 수정
   updateUser: async (id: string, userData: UpdateUserData): Promise<User> => {
-    const { data, error } = await supabase
-      .from('users')
-      .update(userData)
-      .eq('id', id)
-      .select()
-      .single();
+    const { data, error } = await supabase.from('users').update(userData).eq('id', id).select().single();
 
     if (error) throw new Error(error.message);
     return data;
@@ -818,7 +806,8 @@ export const userApi = {
 
 ```typescript
 // hooks/useUsers.ts
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 import { userApi } from '@/lib/api/users';
 
 type User = {
@@ -848,9 +837,7 @@ export const useUsers = (): UseUsersReturn => {
       const data = await userApi.getUsers();
       setUsers(data);
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.'
-      );
+      setError(err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.');
     } finally {
       setIsLoading(false);
     }
@@ -924,7 +911,7 @@ export class ApiError extends Error {
   constructor(
     message: string,
     public statusCode: number,
-    public code?: string
+    public code?: string,
   ) {
     super(message);
     this.name = 'ApiError';
@@ -933,7 +920,7 @@ export class ApiError extends Error {
 
 type ErrorHandler = (error: unknown) => string;
 
-export const handleApiError: ErrorHandler = error => {
+export const handleApiError: ErrorHandler = (error) => {
   if (error instanceof ApiError) {
     return error.message;
   }
@@ -1037,10 +1024,7 @@ export const Avatar = ({ src, alt, size = 40 }: Props) => {
 import { z } from 'zod';
 
 export const userSchema = z.object({
-  name: z
-    .string()
-    .min(1, '이름을 입력해주세요.')
-    .max(50, '이름은 50자 이하여야 합니다.'),
+  name: z.string().min(1, '이름을 입력해주세요.').max(50, '이름은 50자 이하여야 합니다.'),
   email: z.string().email('올바른 이메일 형식이 아닙니다.'),
   password: z.string().min(8, '비밀번호는 8자 이상이어야 합니다.'),
 });
@@ -1121,8 +1105,9 @@ describe('Button', () => {
 
 ```typescript
 // api/users.test.ts
-import { userApi } from './users';
 import { supabase } from '@/lib/supabase';
+
+import { userApi } from './users';
 
 jest.mock('@/lib/supabase');
 
@@ -1202,7 +1187,7 @@ export const getUserById = async (id: string): Promise<User | null> => {
 ```tsx
 import { Button } from '@/components/ui/Button';
 
-<Button variant='primary' onClick={handleClick}>
+<Button variant="primary" onClick={handleClick}>
   클릭하세요
 </Button>;
 ```

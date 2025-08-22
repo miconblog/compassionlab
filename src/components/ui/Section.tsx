@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils';
 import React from 'react';
+
+import { cn } from '@/lib/utils';
 
 interface SectionProps {
   children: React.ReactNode;
@@ -22,7 +23,7 @@ export default function Section({
     white: 'bg-white',
     gray: 'bg-amber-50',
     blue: 'bg-orange-50',
-    gradient: 'bg-gradient-to-br from-amber-50 to-orange-100',
+    gradient: 'bg-gradient-to-br from-amber-50 to-orange-50',
   };
 
   const paddings = {
@@ -32,28 +33,18 @@ export default function Section({
     xl: 'py-32',
   };
 
-  const content = (
-    <div className={cn(paddings[padding], backgrounds[background], className)}>
-      {children}
-    </div>
-  );
+  const content = <div className={cn(paddings[padding], backgrounds[background], className)}>{children}</div>;
 
   if (container) {
     return (
-      <section
-        id={id}
-        className={cn(paddings[padding], backgrounds[background], className)}
-      >
-        <div className='max-w-6xl mx-auto px-4'>{children}</div>
+      <section id={id} className={cn(paddings[padding], backgrounds[background], className)}>
+        <div className="max-w-6xl mx-auto px-4">{children}</div>
       </section>
     );
   }
 
   return (
-    <section
-      id={id}
-      className={cn(paddings[padding], backgrounds[background], className)}
-    >
+    <section id={id} className={cn(paddings[padding], backgrounds[background], className)}>
       {children}
     </section>
   );
@@ -66,18 +57,11 @@ interface SectionHeaderProps {
   centered?: boolean;
 }
 
-export function SectionHeader({
-  title,
-  subtitle,
-  className,
-  centered = true,
-}: SectionHeaderProps) {
+export function SectionHeader({ title, subtitle, className, centered = true }: SectionHeaderProps) {
   return (
     <div className={cn('mb-16', centered && 'text-center', className)}>
-      <h2 className='text-4xl font-bold text-amber-900 mb-4'>{title}</h2>
-      {subtitle && (
-        <p className='text-xl text-amber-700 max-w-3xl mx-auto'>{subtitle}</p>
-      )}
+      <h2 className="text-4xl font-bold text-amber-900 mb-4">{title}</h2>
+      {subtitle && <p className="text-xl text-amber-700 max-w-3xl mx-auto">{subtitle}</p>}
     </div>
   );
 }

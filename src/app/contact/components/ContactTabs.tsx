@@ -1,17 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+
 import { ApplicationForm } from './ApplicationForm';
 import { InquiryForm } from './InquiryForm';
 
 export const ContactTabs = () => {
-  const [activeTab, setActiveTab] = useState<'application' | 'inquiry'>(
-    'application'
-  );
+  const [activeTab, setActiveTab] = useState<'application' | 'inquiry'>('application');
 
   return (
-    <div className='max-w-4xl mx-auto'>
-      <div className='flex border-b border-gray-200 mb-8'>
+    <div className="max-w-4xl mx-auto">
+      <div className="flex border-b border-gray-200 mb-8">
         <button
           onClick={() => setActiveTab('application')}
           className={`px-6 py-3 text-lg font-medium border-b-2 transition-colors ${

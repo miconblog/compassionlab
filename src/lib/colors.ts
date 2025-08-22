@@ -1,45 +1,45 @@
-// 컴패션랩 브랜드 색상 팔레트 - 따뜻한 자연 색감
+// 컴패션랩 브랜드 색상 팔레트 - 부드러운 자연 색감
 export const colors = {
-  // 메인 브랜드 색상 - 따뜻한 베이지 계열
+  // 메인 브랜드 색상 - 부드러운 베이지 계열
   primary: {
-    50: '#fdf8f3',
-    100: '#faf1e8',
-    200: '#f4e4d1',
-    300: '#e8d0b3',
-    400: '#d9b88a',
-    500: '#c4a06b', // 메인 브랜드 컬러
-    600: '#b08c5a',
-    700: '#8f6f47',
-    800: '#73593a',
-    900: '#5d4730',
+    50: '#fdfbf7',
+    100: '#faf7f0',
+    200: '#f4ede0',
+    300: '#e8dcc5',
+    400: '#d4c49a',
+    500: '#b8a67a', // 메인 브랜드 컬러
+    600: '#a08f66',
+    700: '#7f7252',
+    800: '#665b42',
+    900: '#524a35',
   },
 
-  // 보조 색상 - 따뜻한 크림 계열
+  // 보조 색상 - 부드러운 크림 계열
   secondary: {
-    50: '#fefcf8',
-    100: '#fdf8f0',
-    200: '#faf0d8',
-    300: '#f5e4b8',
-    400: '#eed494',
-    500: '#e4c06b', // 보조 브랜드 컬러
-    600: '#d4a94a',
-    700: '#b08a3a',
-    800: '#8e6f30',
-    900: '#735a28',
+    50: '#fefefc',
+    100: '#fdfcf8',
+    200: '#faf8f0',
+    300: '#f5f0e0',
+    400: '#ede4c8',
+    500: '#e0d2a8', // 보조 브랜드 컬러
+    600: '#c8b88a',
+    700: '#a3956f',
+    800: '#84785a',
+    900: '#6a6148',
   },
 
-  // 강조 색상 - 따뜻한 브라운 계열 (자연, 성장)
+  // 강조 색상 - 부드러운 세이지 계열 (자연, 평온)
   accent: {
-    50: '#fdf6f0',
-    100: '#fae8d8',
-    200: '#f4d4b8',
-    300: '#ecb88a',
-    400: '#e0965a',
-    500: '#d17a3a', // 강조 컬러
-    600: '#b85f2e',
-    700: '#964a26',
-    800: '#7a3c22',
-    900: '#63321e',
+    50: '#f4f7f6',
+    100: '#e6edeb',
+    200: '#d1ddd8',
+    300: '#b3c5bd',
+    400: '#8ba696',
+    500: '#6b8a7a', // 강조 컬러
+    600: '#5a7264',
+    700: '#4a5d52',
+    800: '#3d4c43',
+    900: '#333e37',
   },
 
   // 중성 색상
@@ -63,31 +63,31 @@ export const colors = {
   info: '#3b82f6',
 };
 
-// 그라데이션 정의 - 따뜻한 자연 색감
+// 그라데이션 정의 - 부드러운 자연 색감
 export const gradients = {
-  primary: 'from-amber-400 to-orange-500',
-  secondary: 'from-yellow-400 to-amber-500',
-  accent: 'from-orange-400 to-red-500',
-  warm: 'from-amber-300 to-orange-400',
-  cool: 'from-amber-500 to-orange-600',
+  primary: 'from-amber-300 to-orange-400',
+  secondary: 'from-yellow-300 to-amber-400',
+  accent: 'from-emerald-400 to-teal-500',
+  warm: 'from-amber-200 to-orange-300',
+  cool: 'from-emerald-300 to-teal-400',
 };
 
-// 컴패션랩 테마 색상 - 따뜻한 자연 색감
+// 컴패션랩 테마 색상 - 부드러운 자연 색감
 export const theme = {
   // 배경 색상
   background: {
     primary: '#ffffff',
-    secondary: '#fefcf8',
-    tertiary: '#fdf8f0',
+    secondary: '#fefefc',
+    tertiary: '#fdfcf8',
     dark: '#2d1b0e',
   },
 
   // 텍스트 색상
   text: {
     primary: '#2d1b0e',
-    secondary: '#5d4730',
-    tertiary: '#8f6f47',
-    light: '#fefcf8',
+    secondary: '#524a35',
+    tertiary: '#7f7252',
+    light: '#fefefc',
     dark: '#1a0f07',
   },
 

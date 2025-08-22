@@ -1,7 +1,8 @@
 'use server';
 
-import { supabase, type ApplicationFormData, type InquiryFormData } from '@/lib/supabase';
 import { revalidatePath } from 'next/cache';
+
+import { type ApplicationFormData, type InquiryFormData, supabase } from '@/lib/supabase';
 
 // 프로그램 신청 폼 액션
 export async function submitApplicationForm(formData: FormData) {
@@ -13,7 +14,7 @@ export async function submitApplicationForm(formData: FormData) {
       phone: formData.get('phone') as string,
       age: formData.get('age') as string,
       program: formData.get('program') as string,
-      message: formData.get('message') as string || undefined,
+      message: (formData.get('message') as string) || undefined,
       preferred_contact: formData.get('preferred_contact') as 'email' | 'phone',
       agree_to_terms: formData.get('agree_to_terms') === 'true',
     };
@@ -28,14 +29,14 @@ export async function submitApplicationForm(formData: FormData) {
     }
 
     // Supabase에 데이터 저장
-    const { data: result, error } = await supabase
-      .from('applications')
-      .insert([data])
-      .select();
+    const { data: result, error } = await supabase.from('applications').insert([data]).select();
 
     if (error) {
       console.error('Supabase 에러:', error);
-      return { success: false, error: `신청서 저장 중 오류가 발생했습니다: ${error.message}` };
+      return {
+        success: false,
+        error: `신청서 저장 중 오류가 발생했습니다: ${error.message}`,
+      };
     }
 
     // 이메일 알림 (실제 구현에서는 이메일 서비스 연동)
@@ -72,14 +73,14 @@ export async function submitInquiryForm(formData: FormData) {
     }
 
     // Supabase에 데이터 저장
-    const { data: result, error } = await supabase
-      .from('inquiries')
-      .insert([data])
-      .select();
+    const { data: result, error } = await supabase.from('inquiries').insert([data]).select();
 
     if (error) {
       console.error('Supabase 에러:', error);
-      return { success: false, error: `문의 저장 중 오류가 발생했습니다: ${error.message}` };
+      return {
+        success: false,
+        error: `문의 저장 중 오류가 발생했습니다: ${error.message}`,
+      };
     }
 
     // 이메일 알림 (실제 구현에서는 이메일 서비스 연동)
@@ -96,16 +97,10 @@ export async function submitInquiryForm(formData: FormData) {
 }
 
 // 이메일 알림 함수 (실제 구현에서는 이메일 서비스 연동 필요)
-async function sendNotificationEmail(
-  formData: ApplicationFormData | InquiryFormData,
-  type: 'application' | 'inquiry'
-) {
+async function sendNotificationEmail(formData: ApplicationFormData | InquiryFormData, type: 'application' | 'inquiry') {
   try {
     // TODO: 실제 이메일 서비스 연동 (SendGrid, Resend 등)
-    console.log(
-      `${type === 'application' ? '프로그램 신청' : '문의'} 알림 이메일 전송:`,
-      formData
-    );
+    console.log(`${type === 'application' ? '프로그램 신청' : '문의'} 알림 이메일 전송:`, formData);
 
     // 임시로 콘솔에 출력
     const subject = type === 'application' ? '새로운 프로그램 신청' : '새로운 문의';
