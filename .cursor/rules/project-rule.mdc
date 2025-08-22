@@ -1,67 +1,425 @@
----
-description: 
-globs: 
-alwaysApply: false
----
-# 🤖 AI 프로젝트 Rule 셋
+# 🤖 AI Project Rules
 
-이 문서는 AI 프로젝트에서 일반적으로 사용되는 개발 규칙과 가이드라인을 정리한 것입니다.
+This document outlines development rules and guidelines commonly used in AI projects.
 
-## 📋 목차
+## 📋 Table of Contents
 
-1. [코드 스타일](#코드-스타일)
-2. [네이밍 컨벤션](#네이밍-컨벤션)
-3. [컴포넌트 구조](#컴포넌트-구조)
-4. [상태 관리](#상태-관리)
-5. [API 설계](#api-설계)
-6. [에러 처리](#에러-처리)
-7. [성능 최적화](#성능-최적화)
-8. [보안](#보안)
-9. [테스트](#테스트)
-10. [문서화](#문서화)
+1. [Technology Stack](#technology-stack)
+2. [Code Style](#code-style)
+3. [Naming Conventions](#naming-conventions)
+4. [Component Structure](#component-structure)
+5. [State Management](#state-management)
+6. [API Design](#api-design)
+7. [Error Handling](#error-handling)
+8. [Performance Optimization](#performance-optimization)
+9. [Security](#security)
+10. [Testing](#testing)
+11. [Documentation](#documentation)
 
-## 🎨 코드 스타일
+## 🛠️ Technology Stack
 
-### TypeScript 규칙
+### Framework & Runtime
+
+- **Next.js 15.3.4** - React-based full-stack framework (App Router)
+- **React 19.0.0** - User interface library
+- **TypeScript 5** - Static type checking
+
+### Styling
+
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **class-variance-authority** - Component variant management
+- **clsx** - Conditional class name utility
+- **tailwind-merge** - Tailwind class merging
+
+### UI Components
+
+- **shadcn/ui** - Reusable UI component library
+- **Radix UI** - Accessibility-focused headless UI components
+  - `@radix-ui/react-label`
+  - `@radix-ui/react-select`
+  - `@radix-ui/react-slot`
+- **Lucide React** - Icon library
+
+### Form Management & Validation
+
+- **React Hook Form 7.62.0** - High-performance form library
+- **@hookform/resolvers** - React Hook Form resolvers
+- **Zod 4.0.17** - TypeScript-first schema validation
+
+### Backend & Database
+
+- **Supabase** - Open-source Firebase alternative
+  - `@supabase/supabase-js` - Supabase client
+
+### Development Tools
+
+- **ESLint 9** - Code quality checking
+- **Prettier 3.6.0** - Code formatter
+- **eslint-config-prettier** - ESLint-Prettier integration
+- **eslint-plugin-import** - Import/export rules
+- **eslint-plugin-prettier** - Prettier ESLint rules
+- **eslint-plugin-unused-imports** - Remove unused imports
+
+### Animation
+
+- **tw-animate-css** - Tailwind CSS animations
+
+### Project Structure
+
+```
+compassionlab/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── about/             # About page
+│   │   ├── programs/          # Programs page
+│   │   ├── philosophy/        # Education philosophy page
+│   │   ├── contact/           # Contact page
+│   │   ├── globals.css        # Global styles
+│   │   ├── layout.tsx         # Root layout
+│   │   └── page.tsx           # Main page
+│   ├── components/
+│   │   ├── ui/                # shadcn/ui components
+│   │   │   ├── button.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── textarea.tsx
+│   │   │   ├── select.tsx
+│   │   │   ├── label.tsx
+│   │   │   └── form.tsx
+│   │   ├── Navigation.tsx     # Navigation component
+│   │   └── Section.tsx        # Section component
+│   └── lib/
+│       ├── supabase.ts        # Supabase client
+│       ├── utils.ts           # Utility functions
+│       ├── colors.ts          # Brand colors
+│       └── typography.ts      # Typography
+├── public/                    # Static files
+├── docs/                      # Project documentation
+└── supabase/
+    └── schema/                # Database schema
+        └── public.schema.sql  # public schema
+
+```
+
+### Environment Variables
+
+```env
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# Email service (optional)
+SENDGRID_API_KEY=your_sendgrid_api_key
+RESEND_API_KEY=your_resend_api_key
+```
+
+### shadcn/ui Usage Rules
+
+#### Adding Components
+
+```bash
+# Add new components
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add input
+npx shadcn@latest add textarea
+npx shadcn@latest add select
+npx shadcn@latest add label
+npx shadcn@latest add form
+```
+
+#### Component Usage
 
 ```typescript
-// ✅ 좋은 예
-interface User {
+// ✅ Good example - shadcn/ui component usage (client component)
+'use client';
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+
+export const UserCard = () => {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>User Information</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Input placeholder="Enter your name" />
+        <Button>Save</Button>
+      </CardContent>
+    </Card>
+  );
+};
+
+// ✅ Good example - shadcn/ui usage in server component
+// app/users/page.tsx
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+export default function UsersPage() {
+  return (
+    <div className="container mx-auto py-8">
+      <Card>
+        <CardHeader>
+          <CardTitle>User List</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>User information...</p>
+          <Button>Add New User</Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+// ❌ Bad example - using variant prop (shadcn/ui Card doesn't support variant)
+<Card variant="elevated">  // Don't do this
+  <div>Content</div>
+</Card>
+```
+
+#### Form Component Usage
+
+```typescript
+// React Hook Form + Zod + shadcn/ui integration
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+
+const formSchema = z.object({
+  name: z.string().min(1, 'Please enter your name'),
+  email: z.string().email('Invalid email format'),
+});
+
+export const UserForm = () => {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+    },
+  });
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+  };
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
+  );
+};
+```
+
+### Supabase Usage Rules
+
+#### Client Setup
+
+```typescript
+// lib/supabase.ts
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+```
+
+#### Database Function Writing
+
+```typescript
+// lib/api/forms.ts
+import { supabase } from '@/lib/supabase';
+
+export type ApplicationFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  age: number;
+  program: string;
+  message?: string;
+  preferred_contact: 'email' | 'phone';
+  agree_to_terms: boolean;
+};
+
+export const saveApplicationForm = async (data: ApplicationFormData) => {
+  const { data: result, error } = await supabase
+    .from('applications')
+    .insert([data])
+    .select();
+
+  if (error) {
+    throw new Error(`Error saving application: ${error.message}`);
+  }
+
+  return result;
+};
+```
+
+### Tailwind CSS Usage Rules
+
+#### Brand Color Usage
+
+```typescript
+// lib/colors.ts
+export const colors = {
+  primary: {
+    50: '#eff6ff',
+    500: '#3b82f6',
+    600: '#2563eb',
+    700: '#1d4ed8',
+  },
+  secondary: {
+    50: '#f8fafc',
+    500: '#64748b',
+    600: '#475569',
+    700: '#334155',
+  },
+};
+
+// Usage example
+<div className="bg-primary-600 text-white">
+  Using brand colors
+</div>
+```
+
+#### Responsive Design
+
+```typescript
+// ✅ Good example
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <Card className="p-4 md:p-6">
+    <h3 className="text-lg md:text-xl font-semibold">Title</h3>
+    <p className="text-sm md:text-base">Content</p>
+  </Card>
+</div>
+
+// ❌ Bad example - using fixed sizes
+<div className="grid grid-cols-3 gap-4">
+  <Card className="p-6">
+    <h3 className="text-xl font-semibold">Title</h3>
+    <p className="text-base">Content</p>
+  </Card>
+</div>
+```
+
+## 🎨 Code Style
+
+### TypeScript Rules
+
+#### Type Declaration Rules
+
+```typescript
+// ✅ Good example - using type (general type definitions)
+type User = {
   id: string;
   name: string;
   email: string;
   createdAt: Date;
-}
+};
 
 type UserStatus = 'active' | 'inactive' | 'pending';
 
-const getUserById = async (id: string): Promise<User | null> => {
-  // 구현
-};
-
-// ❌ 나쁜 예
-interface user {
-  ID: string;
-  Name: string;
-  Email: string;
-  created_at: Date;
-}
-
-const getUserById = async (id: string) => {
-  // 구현
-};
-```
-
-### React 컴포넌트 규칙
-
-```typescript
-// ✅ 좋은 예
-type Props {
+type ButtonProps = {
+  children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   onClick?: () => void;
+};
+
+type ApiResponse<T> = {
+  data: T;
+  error: string | null;
+  success: boolean;
+};
+
+// ✅ Good example - using interface (OOP concept interfaces)
+interface UserService {
+  getUserById(id: string): Promise<User | null>;
+  createUser(user: Omit<User, 'id' | 'createdAt'>): Promise<User>;
+  updateUser(id: string, user: Partial<User>): Promise<User>;
+  deleteUser(id: string): Promise<void>;
 }
+
+interface DatabaseConnection {
+  connect(): Promise<void>;
+  disconnect(): Promise<void>;
+  query<T>(sql: string, params?: any[]): Promise<T[]>;
+}
+
+interface EventHandler {
+  handle(event: Event): void;
+  canHandle(event: Event): boolean;
+}
+
+// ❌ Bad example - using interface for general type definitions
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick?: () => void;
+}
+
+// ❌ Bad example - incorrect naming
+type user = {
+  ID: string;
+  Name: string;
+  Email: string;
+  created_at: Date;
+};
+
+const getUserById = async (id: string): Promise<User | null> => {
+  // implementation
+};
+```
+
+### React Component Rules
+
+#### Client Components (Named Arrow Functions)
+
+```typescript
+// ✅ Good example - client component (internal use)
+'use client';
+
+type Props = {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  onClick?: () => void;
+};
 
 export const Button = ({
   children,
@@ -69,7 +427,7 @@ export const Button = ({
   size = 'md',
   disabled = false,
   onClick,
-}:Props) => {
+}: Props) => {
   return (
     <button
       className={`btn btn-${variant} btn-${size}`}
@@ -81,86 +439,270 @@ export const Button = ({
   );
 };
 
-// ❌ 나쁜 예
+// ✅ Good example - stateful client component (internal use)
+'use client';
+
+type Props = {
+  initialValue?: number;
+};
+
+export const Counter = ({ initialValue = 0 }: Props) => {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = () => setCount(prev => prev + 1);
+  const decrement = () => setCount(prev => prev - 1);
+
+  return (
+    <div className="flex items-center gap-4">
+      <button onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
+    </div>
+  );
+};
+
+// ✅ Good example - when Props export is needed
+'use client';
+
+export type ButtonProps = {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  onClick?: () => void;
+};
+
+export const Button = ({
+  children,
+  variant = 'primary',
+  size = 'md',
+  disabled = false,
+  onClick,
+}: ButtonProps) => {
+  return (
+    <button
+      className={`btn btn-${variant} btn-${size}`}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
+
+// ❌ Bad example - using function declaration
+export function Button(props: any) {
+  return <button {...props} />;
+}
+
+// ❌ Bad example - using anonymous function
 export const Button = (props: any) => {
   return <button {...props} />;
 };
 ```
 
-## 🏷️ 네이밍 컨벤션
+#### Server Components (page.tsx files only)
 
-### 파일 및 폴더
+```typescript
+// ✅ Good example - server component (page.tsx)
+// app/about/page.tsx
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+export default function AboutPage() {
+  return (
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-6">About Us</h1>
+      <Card>
+        <CardHeader>
+          <CardTitle>Company Introduction</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>Company description...</p>
+          <Button>Learn More</Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+// ✅ Good example - data fetching in server component
+// app/programs/page.tsx
+import { getPrograms } from '@/lib/api/programs';
+
+export default async function ProgramsPage() {
+  const programs = await getPrograms();
+
+  return (
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-6">Programs</h1>
+      <div className="grid gap-4">
+        {programs.map(program => (
+          <div key={program.id}>
+            <h2>{program.title}</h2>
+            <p>{program.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ❌ Bad example - using client features in server component
+export default function Page() {
+  const [state, setState] = useState(); // ❌ useState only available in client
+  const handleClick = () => {}; // ❌ Event handlers only available in client
+
+  return <div>...</div>;
+}
+```
+
+## 🏷️ Naming Conventions
+
+### Files and Folders
 
 ```
 src/
 ├── components/
-│   ├── ui/                    # 기본 UI 컴포넌트
+│   ├── ui/                    # Basic UI components
 │   │   ├── Button/
 │   │   │   ├── Button.tsx
 │   │   │   ├── Button.test.tsx
 │   │   │   └── index.ts
 │   │   └── Input/
-│   ├── features/              # 기능별 컴포넌트
+│   ├── features/              # Feature-specific components
 │   │   ├── auth/
 │   │   └── dashboard/
-│   └── layouts/               # 레이아웃 컴포넌트
-├── hooks/                     # 커스텀 훅
-├── lib/                       # 유틸리티 함수
-├── types/                     # 타입 정의
-└── constants/                 # 상수
+│   └── layouts/               # Layout components
+├── hooks/                     # Custom hooks
+├── lib/                       # Utility functions
+├── types/                     # Type definitions
+└── constants/                 # Constants
 ```
 
-### 변수 및 함수
+### Variables and Functions
 
 ```typescript
-// ✅ 좋은 예
+// ✅ Good example
 const userList = [];
 const isLoading = true;
 const handleSubmit = () => {};
 const fetchUserData = async () => {};
 
-// ❌ 나쁜 예
+// ❌ Bad example
 const user_list = [];
 const loading = true;
 const submit = () => {};
 const getData = async () => {};
 ```
 
-## 🧩 컴포넌트 구조
+## 🧩 Component Structure
 
-### 컴포넌트 파일 구조
+### Component File Structure
+
+#### Client Component Structure
 
 ```typescript
-// Button/Button.tsx
+// components/ui/Button.tsx
+'use client';
+
 import { cn } from '@/lib/utils';
 
-type Props {
-  // Props 정의
-}
+type Props = {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  onClick?: () => void;
+};
 
-export const Button = ({ ... }:Props) => {
-  // 컴포넌트 로직
+export const Button = ({
+  children,
+  variant = 'primary',
+  size = 'md',
+  disabled = false,
+  onClick,
+  className,
+  ...props
+}: Props & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+  return (
+    <button
+      className={cn(
+        'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+        'disabled:pointer-events-none disabled:opacity-50',
+        {
+          'bg-primary text-primary-foreground hover:bg-primary/90': variant === 'primary',
+          'bg-secondary text-secondary-foreground hover:bg-secondary/80': variant === 'secondary',
+          'bg-destructive text-destructive-foreground hover:bg-destructive/90': variant === 'danger',
+        },
+        {
+          'h-9 px-3': size === 'sm',
+          'h-10 px-4 py-2': size === 'md',
+          'h-11 px-8': size === 'lg',
+        },
+        className
+      )}
+      disabled={disabled}
+      onClick={onClick}
+      {...props}
+    >
+      {children}
+    </button>
+  );
 };
 ```
 
-### 컴포넌트 분리 원칙
-
-1. **단일 책임 원칙**: 하나의 컴포넌트는 하나의 책임만 가져야 함
-2. **재사용성**: 가능한 한 재사용 가능하게 설계
-3. **합성**: 상속보다는 합성을 우선
-4. **불변성**: Props는 불변해야 함
-
-## 🔄 상태 관리
-
-### 로컬 상태
+#### Server Component Structure (page.tsx)
 
 ```typescript
-// ✅ 좋은 예
+// app/about/page.tsx
+import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+
+export default function AboutPage() {
+  return (
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-6">About Us</h1>
+      <Card>
+        <CardHeader>
+          <CardTitle>Company Introduction</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>Company description...</p>
+          <Button>Learn More</Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+
+#### Component Separation Principles
+
+1. **Client/Server Separation**:
+   - Client components: Use `'use client'` directive, need state or event handlers
+   - Server components: Only page.tsx files, for data fetching or static rendering
+
+2. **Single Responsibility Principle**: Each component should have only one responsibility
+
+3. **Reusability**: Design to be reusable whenever possible
+
+4. **Composition**: Prefer composition over inheritance
+
+5. **Immutability**: Props should be immutable
+
+## 🔄 State Management
+
+### Local State
+
+```typescript
+// ✅ Good example
 const [isLoading, setIsLoading] = useState(false);
 const [error, setError] = useState<string | null>(null);
 const [data, setData] = useState<User[]>([]);
 
-// ❌ 나쁜 예
+// ❌ Bad example
 const [state, setState] = useState({
   isLoading: false,
   error: null,
@@ -168,20 +710,28 @@ const [state, setState] = useState({
 });
 ```
 
-### 전역 상태 (Zustand 예시)
+### Global State (Zustand Example)
 
 ```typescript
 // stores/userStore.ts
 import { create } from 'zustand';
 
-interface UserState {
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+type UserState = {
   user: User | null;
   isLoading: boolean;
   error: string | null;
   setUser: (user: User | null) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
-}
+};
 
 export const useUserStore = create<UserState>(set => ({
   user: null,
@@ -193,27 +743,35 @@ export const useUserStore = create<UserState>(set => ({
 }));
 ```
 
-## 🌐 API 설계
+## 🌐 API Design
 
-### API 함수 구조
+### API Function Structure
 
 ```typescript
 // lib/api/users.ts
 import { supabase } from '@/lib/supabase';
 
-export interface CreateUserData {
+export type CreateUserData = {
   name: string;
   email: string;
   password: string;
-}
+};
 
-export interface UpdateUserData {
+export type UpdateUserData = {
   name?: string;
   email?: string;
-}
+};
+
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 export const userApi = {
-  // 사용자 목록 조회
+  // Get user list
   getUsers: async (): Promise<User[]> => {
     const { data, error } = await supabase.from('users').select('*');
 
@@ -221,7 +779,7 @@ export const userApi = {
     return data;
   },
 
-  // 사용자 생성
+  // Create user
   createUser: async (userData: CreateUserData): Promise<User> => {
     const { data, error } = await supabase
       .from('users')
@@ -233,7 +791,7 @@ export const userApi = {
     return data;
   },
 
-  // 사용자 수정
+  // Update user
   updateUser: async (id: string, userData: UpdateUserData): Promise<User> => {
     const { data, error } = await supabase
       .from('users')
@@ -246,7 +804,7 @@ export const userApi = {
     return data;
   },
 
-  // 사용자 삭제
+  // Delete user
   deleteUser: async (id: string): Promise<void> => {
     const { error } = await supabase.from('users').delete().eq('id', id);
 
@@ -255,14 +813,29 @@ export const userApi = {
 };
 ```
 
-### 커스텀 훅
+### Custom Hooks
 
 ```typescript
 // hooks/useUsers.ts
 import { useState, useEffect } from 'react';
 import { userApi } from '@/lib/api/users';
 
-export const useUsers = () => {
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+type UseUsersReturn = {
+  users: User[];
+  isLoading: boolean;
+  error: string | null;
+  refetch: () => Promise<void>;
+};
+
+export const useUsers = (): UseUsersReturn => {
   const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -275,7 +848,7 @@ export const useUsers = () => {
       setUsers(data);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : '알 수 없는 오류가 발생했습니다.'
+        err instanceof Error ? err.message : 'An unknown error occurred.'
       );
     } finally {
       setIsLoading(false);
@@ -295,23 +868,23 @@ export const useUsers = () => {
 };
 ```
 
-## ⚠️ 에러 처리
+## ⚠️ Error Handling
 
-### 에러 바운더리
+### Error Boundary
 
 ```typescript
 // components/ErrorBoundary.tsx
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 
-interface Props {
+type Props = {
   children: ReactNode;
   fallback?: ReactNode;
-}
+};
 
-interface State {
+type State = {
   hasError: boolean;
   error?: Error;
-}
+};
 
 export class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
@@ -331,8 +904,8 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return this.props.fallback || (
         <div className="error-boundary">
-          <h2>문제가 발생했습니다.</h2>
-          <p>페이지를 새로고침해주세요.</p>
+          <h2>Something went wrong.</h2>
+          <p>Please refresh the page.</p>
         </div>
       );
     }
@@ -342,7 +915,7 @@ export class ErrorBoundary extends Component<Props, State> {
 }
 ```
 
-### API 에러 처리
+### API Error Handling
 
 ```typescript
 // lib/errorHandler.ts
@@ -357,7 +930,9 @@ export class ApiError extends Error {
   }
 }
 
-export const handleApiError = (error: unknown): string => {
+type ErrorHandler = (error: unknown) => string;
+
+export const handleApiError: ErrorHandler = error => {
   if (error instanceof ApiError) {
     return error.message;
   }
@@ -366,22 +941,27 @@ export const handleApiError = (error: unknown): string => {
     return error.message;
   }
 
-  return '알 수 없는 오류가 발생했습니다.';
+  return 'An unknown error occurred.';
 };
 ```
 
-## ⚡ 성능 최적화
+## ⚡ Performance Optimization
 
-### React.memo 사용
+### React.memo Usage
 
 ```typescript
-// ✅ 좋은 예
-export const UserCard = React.memo<UserCardProps>(({ user, onEdit }) => {
+// ✅ Good example
+type Props = {
+  user: User;
+  onEdit: (id: string) => void;
+};
+
+export const UserCard = React.memo<Props>(({ user, onEdit }) => {
   return (
     <div className="user-card">
       <h3>{user.name}</h3>
       <p>{user.email}</p>
-      <button onClick={() => onEdit(user.id)}>수정</button>
+      <button onClick={() => onEdit(user.id)}>Edit</button>
     </div>
   );
 });
@@ -389,11 +969,16 @@ export const UserCard = React.memo<UserCardProps>(({ user, onEdit }) => {
 UserCard.displayName = 'UserCard';
 ```
 
-### useMemo와 useCallback
+### useMemo and useCallback
 
 ```typescript
-// ✅ 좋은 예
-const UserList: React.FC<UserListProps> = ({ users, onUserSelect }) => {
+// ✅ Good example
+type Props = {
+  users: User[];
+  onUserSelect: (userId: string) => void;
+};
+
+const UserList = ({ users, onUserSelect }: Props) => {
   const sortedUsers = useMemo(() => {
     return users.sort((a, b) => a.name.localeCompare(b.name));
   }, [users]);
@@ -416,13 +1001,19 @@ const UserList: React.FC<UserListProps> = ({ users, onUserSelect }) => {
 };
 ```
 
-### 이미지 최적화
+### Image Optimization
 
 ```typescript
-// ✅ 좋은 예
+// ✅ Good example
 import Image from 'next/image';
 
-export const Avatar: React.FC<AvatarProps> = ({ src, alt, size = 40 }) => {
+type Props = {
+  src: string;
+  alt: string;
+  size?: number;
+};
+
+export const Avatar = ({ src, alt, size = 40 }: Props) => {
   return (
     <Image
       src={src}
@@ -436,9 +1027,9 @@ export const Avatar: React.FC<AvatarProps> = ({ src, alt, size = 40 }) => {
 };
 ```
 
-## 🔒 보안
+## 🔒 Security
 
-### 입력 검증
+### Input Validation
 
 ```typescript
 // lib/validation.ts
@@ -447,25 +1038,29 @@ import { z } from 'zod';
 export const userSchema = z.object({
   name: z
     .string()
-    .min(1, '이름을 입력해주세요.')
-    .max(50, '이름은 50자 이하여야 합니다.'),
-  email: z.string().email('올바른 이메일 형식이 아닙니다.'),
-  password: z.string().min(8, '비밀번호는 8자 이상이어야 합니다.'),
+    .min(1, 'Please enter your name.')
+    .max(50, 'Name must be 50 characters or less.'),
+  email: z.string().email('Invalid email format.'),
+  password: z.string().min(8, 'Password must be at least 8 characters.'),
 });
 
 export type UserFormData = z.infer<typeof userSchema>;
 
-// 사용 예시
+// Usage example
 const validateUserData = (data: unknown): UserFormData => {
   return userSchema.parse(data);
 };
 ```
 
-### XSS 방지
+### XSS Prevention
 
 ```typescript
-// ✅ 좋은 예
-const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
+// ✅ Good example
+type Props = {
+  user: User;
+};
+
+const UserProfile = ({ user }: Props) => {
   return (
     <div>
       <h1>{user.name}</h1>
@@ -474,8 +1069,8 @@ const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
   );
 };
 
-// ❌ 나쁜 예
-const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
+// ❌ Bad example
+const UserProfile = ({ user }: Props) => {
   return (
     <div>
       <h1 dangerouslySetInnerHTML={{ __html: user.name }} />
@@ -485,14 +1080,20 @@ const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
 };
 ```
 
-## 🧪 테스트
+## 🧪 Testing
 
-### 컴포넌트 테스트
+### Component Testing
 
 ```typescript
 // Button.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Button } from './Button';
+
+type Props = {
+  children: React.ReactNode;
+  onClick?: () => void;
+  disabled?: boolean;
+};
 
 describe('Button', () => {
   it('renders with correct text', () => {
@@ -515,7 +1116,7 @@ describe('Button', () => {
 });
 ```
 
-### API 테스트
+### API Testing
 
 ```typescript
 // api/users.test.ts
@@ -556,16 +1157,16 @@ describe('userApi', () => {
 });
 ```
 
-## 📚 문서화
+## 📚 Documentation
 
-### JSDoc 주석
+### JSDoc Comments
 
 ````typescript
 /**
- * 사용자 정보를 가져오는 함수
- * @param id - 사용자 ID
- * @returns 사용자 정보 또는 null
- * @throws {Error} 사용자를 찾을 수 없는 경우
+ * Function to get user information
+ * @param id - User ID
+ * @returns User information or null
+ * @throws {Error} When user is not found
  * @example
  * ```typescript
  * const user = await getUserById('123');
@@ -575,66 +1176,70 @@ describe('userApi', () => {
  * ```
  */
 export const getUserById = async (id: string): Promise<User | null> => {
-  // 구현
+  // implementation
 };
 ````
 
-### README 작성 가이드
+### README Writing Guide
 
 ````markdown
-# 컴포넌트명
+# Component Name
 
-## 개요
+## Overview
 
-컴포넌트의 목적과 기능을 간단히 설명
+Brief description of the component's purpose and functionality
 
 ## Props
 
-| Prop     | Type                     | Default   | Description |
-| -------- | ------------------------ | --------- | ----------- |
-| children | ReactNode                | -         | 자식 요소   |
-| variant  | 'primary' \| 'secondary' | 'primary' | 버튼 스타일 |
+| Prop     | Type                     | Default   | Description    |
+| -------- | ------------------------ | --------- | -------------- |
+| children | ReactNode                | -         | Child elements |
+| variant  | 'primary' \| 'secondary' | 'primary' | Button style   |
 
-## 사용 예시
+## Usage Example
 
 ```tsx
 import { Button } from '@/components/ui/Button';
 
 <Button variant='primary' onClick={handleClick}>
-  클릭하세요
+  Click me
 </Button>;
 ```
 ````
 
-## 주의사항
+## Notes
 
-- 특별한 사용 시 주의사항
-- 제한사항
+- Special usage considerations
+- Limitations
 
 ```
 
-## 📋 체크리스트
+## 📋 Checklist
 
-### 개발 시작 전
-- [ ] 요구사항 분석 완료
-- [ ] 기술 스택 결정
-- [ ] 프로젝트 구조 설계
-- [ ] 개발 환경 설정
+### Before Development
+- [ ] Requirements analysis completed
+- [ ] Technology stack decided
+- [ ] Project structure designed
+- [ ] Development environment set up
 
-### 개발 중
-- [ ] 코드 스타일 가이드 준수
-- [ ] 타입 안전성 확보
-- [ ] 에러 처리 구현
-- [ ] 성능 최적화 고려
-- [ ] 보안 사항 검토
+### During Development
+- [ ] Code style guide compliance
+- [ ] Type safety ensured
+- [ ] Error handling implemented
+- [ ] Performance optimization considered
+- [ ] Security review completed
 
-### 개발 완료 후
-- [ ] 코드 리뷰 완료
-- [ ] 테스트 작성 및 통과
-- [ ] 문서 업데이트
-- [ ] 배포 준비
+### After Development
+- [ ] Code review completed
+- [ ] Tests written and passed
+- [ ] Documentation updated
+- [ ] Deployment ready
 
 ---
 
-이 문서는 지속적으로 업데이트됩니다. 팀의 요구사항에 맞게 수정하여 사용하세요.
+This document is continuously updated. Modify according to your team's requirements.
+description:
+globs:
+alwaysApply: false
+---
 ```

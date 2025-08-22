@@ -4,68 +4,429 @@
 
 ## 📋 목차
 
-1. [코드 스타일](#코드-스타일)
-2. [네이밍 컨벤션](#네이밍-컨벤션)
-3. [컴포넌트 구조](#컴포넌트-구조)
-4. [상태 관리](#상태-관리)
-5. [API 설계](#api-설계)
-6. [에러 처리](#에러-처리)
-7. [성능 최적화](#성능-최적화)
-8. [보안](#보안)
-9. [테스트](#테스트)
-10. [문서화](#문서화)
+1. [기술 스택](#기술-스택)
+2. [코드 스타일](#코드-스타일)
+3. [네이밍 컨벤션](#네이밍-컨벤션)
+4. [컴포넌트 구조](#컴포넌트-구조)
+5. [상태 관리](#상태-관리)
+6. [API 설계](#api-설계)
+7. [에러 처리](#에러-처리)
+8. [성능 최적화](#성능-최적화)
+9. [보안](#보안)
+10. [테스트](#테스트)
+11. [문서화](#문서화)
+
+## 🛠️ 기술 스택
+
+### 프레임워크 & 런타임
+
+- **Next.js 15.3.4** - React 기반 풀스택 프레임워크 (App Router)
+- **React 19.0.0** - 사용자 인터페이스 라이브러리
+- **TypeScript 5** - 정적 타입 검사
+
+### 스타일링
+
+- **Tailwind CSS 4** - 유틸리티 퍼스트 CSS 프레임워크
+- **class-variance-authority** - 컴포넌트 변형 관리
+- **clsx** - 조건부 클래스명 유틸리티
+- **tailwind-merge** - Tailwind 클래스 병합
+
+### UI 컴포넌트
+
+- **shadcn/ui** - 재사용 가능한 UI 컴포넌트 라이브러리
+- **Radix UI** - 접근성 중심의 헤드리스 UI 컴포넌트
+  - `@radix-ui/react-label`
+  - `@radix-ui/react-select`
+  - `@radix-ui/react-slot`
+- **Lucide React** - 아이콘 라이브러리
+
+### 폼 관리 & 검증
+
+- **React Hook Form 7.62.0** - 고성능 폼 라이브러리
+- **@hookform/resolvers** - React Hook Form 리졸버
+- **Zod 4.0.17** - TypeScript 우선 스키마 검증
+
+### 백엔드 & 데이터베이스
+
+- **Supabase** - 오픈소스 Firebase 대안
+  - `@supabase/supabase-js` - Supabase 클라이언트
+
+### 개발 도구
+
+- **ESLint 9** - 코드 품질 검사
+- **Prettier 3.6.0** - 코드 포맷터
+- **eslint-config-prettier** - ESLint-Prettier 통합
+- **eslint-plugin-import** - import/export 규칙
+- **eslint-plugin-prettier** - Prettier ESLint 규칙
+- **eslint-plugin-unused-imports** - 미사용 import 제거
+
+### 애니메이션
+
+- **tw-animate-css** - Tailwind CSS 애니메이션
+
+### 프로젝트 구조
+
+```
+compassionlab/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── about/             # About 페이지
+│   │   ├── programs/          # 프로그램 페이지
+│   │   ├── philosophy/        # 교육 철학 페이지
+│   │   ├── contact/           # 문의 페이지
+│   │   ├── globals.css        # 전역 스타일
+│   │   ├── layout.tsx         # 루트 레이아웃
+│   │   └── page.tsx           # 메인 페이지
+│   ├── components/
+│   │   ├── ui/                # shadcn/ui 컴포넌트
+│   │   │   ├── button.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── textarea.tsx
+│   │   │   ├── select.tsx
+│   │   │   ├── label.tsx
+│   │   │   └── form.tsx
+│   │   ├── Navigation.tsx     # 네비게이션 컴포넌트
+│   │   └── Section.tsx        # 섹션 컴포넌트
+│   └── lib/
+│       ├── supabase.ts        # Supabase 클라이언트
+│       ├── utils.ts           # 유틸리티 함수
+│       ├── colors.ts          # 브랜드 색상
+│       └── typography.ts      # 타이포그래피
+├── public/                    # 정적 파일
+├── docs/                      # 프로젝트 문서
+└── supabase/
+    └── schema/                # Database schema
+        └── public.schema.sql  # public schema
+```
+
+### 환경 변수
+
+```env
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# 이메일 서비스 (선택사항)
+SENDGRID_API_KEY=your_sendgrid_api_key
+RESEND_API_KEY=your_resend_api_key
+```
+
+### shadcn/ui 사용 규칙
+
+#### 컴포넌트 추가
+
+```bash
+# 새 컴포넌트 추가
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add input
+npx shadcn@latest add textarea
+npx shadcn@latest add select
+npx shadcn@latest add label
+npx shadcn@latest add form
+```
+
+#### 컴포넌트 사용법
+
+```typescript
+// ✅ 좋은 예 - shadcn/ui 컴포넌트 사용 (클라이언트 컴포넌트)
+'use client';
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+
+export const UserCard = () => {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>사용자 정보</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Input placeholder="이름을 입력하세요" />
+        <Button>저장</Button>
+      </CardContent>
+    </Card>
+  );
+};
+
+// ✅ 좋은 예 - 서버 컴포넌트에서 shadcn/ui 사용
+// app/users/page.tsx
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+export default function UsersPage() {
+  return (
+    <div className="container mx-auto py-8">
+      <Card>
+        <CardHeader>
+          <CardTitle>사용자 목록</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>사용자 정보...</p>
+          <Button>새 사용자 추가</Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+// ❌ 나쁜 예 - variant prop 사용 (shadcn/ui Card는 variant 지원 안함)
+<Card variant="elevated">  // 이렇게 하면 안됨
+  <div>내용</div>
+</Card>
+```
+
+#### 폼 컴포넌트 사용법
+
+```typescript
+// React Hook Form + Zod + shadcn/ui 통합
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+
+const formSchema = z.object({
+  name: z.string().min(1, '이름을 입력해주세요'),
+  email: z.string().email('올바른 이메일 형식이 아닙니다'),
+});
+
+export const UserForm = () => {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+    },
+  });
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+  };
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>이름</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">제출</Button>
+      </form>
+    </Form>
+  );
+};
+```
+
+### Supabase 사용 규칙
+
+#### 클라이언트 설정
+
+```typescript
+// lib/supabase.ts
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+```
+
+#### 데이터베이스 함수 작성
+
+```typescript
+// lib/api/forms.ts
+import { supabase } from '@/lib/supabase';
+
+export type ApplicationFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  age: number;
+  program: string;
+  message?: string;
+  preferred_contact: 'email' | 'phone';
+  agree_to_terms: boolean;
+};
+
+export const saveApplicationForm = async (data: ApplicationFormData) => {
+  const { data: result, error } = await supabase
+    .from('applications')
+    .insert([data])
+    .select();
+
+  if (error) {
+    throw new Error(`신청서 저장 중 오류가 발생했습니다: ${error.message}`);
+  }
+
+  return result;
+};
+```
+
+### Tailwind CSS 사용 규칙
+
+#### 브랜드 색상 사용
+
+```typescript
+// lib/colors.ts
+export const colors = {
+  primary: {
+    50: '#eff6ff',
+    500: '#3b82f6',
+    600: '#2563eb',
+    700: '#1d4ed8',
+  },
+  secondary: {
+    50: '#f8fafc',
+    500: '#64748b',
+    600: '#475569',
+    700: '#334155',
+  },
+};
+
+// 사용 예시
+<div className="bg-primary-600 text-white">
+  브랜드 색상 사용
+</div>
+```
+
+#### 반응형 디자인
+
+```typescript
+// ✅ 좋은 예
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <Card className="p-4 md:p-6">
+    <h3 className="text-lg md:text-xl font-semibold">제목</h3>
+    <p className="text-sm md:text-base">내용</p>
+  </Card>
+</div>
+
+// ❌ 나쁜 예 - 고정 크기 사용
+<div className="grid grid-cols-3 gap-4">
+  <Card className="p-6">
+    <h3 className="text-xl font-semibold">제목</h3>
+    <p className="text-base">내용</p>
+  </Card>
+</div>
+```
 
 ## 🎨 코드 스타일
 
 ### TypeScript 규칙
 
+#### 타입 선언 규칙
+
 ```typescript
-// ✅ 좋은 예
-interface User {
+// ✅ 좋은 예 - type 사용 (일반적인 타입 정의)
+type User = {
   id: string;
   name: string;
   email: string;
   createdAt: Date;
-}
+};
 
 type UserStatus = 'active' | 'inactive' | 'pending';
 
-const getUserById = async (id: string): Promise<User | null> => {
-  // 구현
+type ButtonProps = {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  onClick?: () => void;
 };
 
-// ❌ 나쁜 예
-interface user {
+type ApiResponse<T> = {
+  data: T;
+  error: string | null;
+  success: boolean;
+};
+
+// ✅ 좋은 예 - interface 사용 (OOP 개념의 인터페이스)
+interface UserService {
+  getUserById(id: string): Promise<User | null>;
+  createUser(user: Omit<User, 'id' | 'createdAt'>): Promise<User>;
+  updateUser(id: string, user: Partial<User>): Promise<User>;
+  deleteUser(id: string): Promise<void>;
+}
+
+interface DatabaseConnection {
+  connect(): Promise<void>;
+  disconnect(): Promise<void>;
+  query<T>(sql: string, params?: any[]): Promise<T[]>;
+}
+
+interface EventHandler {
+  handle(event: Event): void;
+  canHandle(event: Event): boolean;
+}
+
+// ❌ 나쁜 예 - interface를 일반 타입 정의에 사용
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick?: () => void;
+}
+
+// ❌ 나쁜 예 - 잘못된 네이밍
+type user = {
   ID: string;
   Name: string;
   Email: string;
   created_at: Date;
-}
+};
 
-const getUserById = async (id: string) => {
+const getUserById = async (id: string): Promise<User | null> => {
   // 구현
 };
 ```
 
 ### React 컴포넌트 규칙
 
+#### 클라이언트 컴포넌트 (이름있는 화살표 함수 사용)
+
 ```typescript
-// ✅ 좋은 예
-interface ButtonProps {
+// ✅ 좋은 예 - 클라이언트 컴포넌트 (내부 사용)
+'use client';
+
+type Props = {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   onClick?: () => void;
-}
+};
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   children,
   variant = 'primary',
   size = 'md',
   disabled = false,
   onClick,
-}) => {
+}: Props) => {
   return (
     <button
       className={`btn btn-${variant} btn-${size}`}
@@ -77,11 +438,125 @@ export const Button: React.FC<ButtonProps> = ({
   );
 };
 
-// ❌ 나쁜 예
-export const Button = (props: any) => {
-  return <button {...props} />;
+// ✅ 좋은 예 - 상태가 있는 클라이언트 컴포넌트 (내부 사용)
+'use client';
+
+type Props = {
+  initialValue?: number;
+};
+
+export const Counter = ({ initialValue = 0 }: Props) => {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = () => setCount(prev => prev + 1);
+  const decrement = () => setCount(prev => prev - 1);
+
+  return (
+    <div className="flex items-center gap-4">
+      <button onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
+    </div>
+  );
+};
+
+// ✅ 좋은 예 - Props export가 필요한 경우
+'use client';
+
+export type ButtonProps = {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  onClick?: () => void;
+};
+
+export const Button = ({
+  children,
+  variant = 'primary',
+  size = 'md',
+  disabled = false,
+  onClick,
+}: ButtonProps) => {
+  return (
+    <button
+      className={`btn btn-${variant} btn-${size}`}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
 };
 ```
+
+// ❌ 나쁜 예 - 함수 선언식 사용
+export function Button(props: any) {
+return <button {...props} />;
+}
+
+// ❌ 나쁜 예 - 익명 함수 사용
+export const Button = (props: any) => {
+return <button {...props} />;
+};
+
+````
+
+#### 서버 컴포넌트 (page.tsx 파일만)
+
+```typescript
+// ✅ 좋은 예 - 서버 컴포넌트 (page.tsx)
+// app/about/page.tsx
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+export default function AboutPage() {
+  return (
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-6">About Us</h1>
+      <Card>
+        <CardHeader>
+          <CardTitle>회사 소개</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>회사에 대한 설명...</p>
+          <Button>자세히 보기</Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+// ✅ 좋은 예 - 서버 컴포넌트에서 데이터 페칭
+// app/programs/page.tsx
+import { getPrograms } from '@/lib/api/programs';
+
+export default async function ProgramsPage() {
+  const programs = await getPrograms();
+
+  return (
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-6">프로그램</h1>
+      <div className="grid gap-4">
+        {programs.map(program => (
+          <div key={program.id}>
+            <h2>{program.title}</h2>
+            <p>{program.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ❌ 나쁜 예 - 서버 컴포넌트에서 클라이언트 기능 사용
+export default function Page() {
+  const [state, setState] = useState(); // ❌ useState는 클라이언트에서만 사용 가능
+  const handleClick = () => {}; // ❌ 이벤트 핸들러는 클라이언트에서만 사용 가능
+
+  return <div>...</div>;
+}
+````
 
 ## 🏷️ 네이밍 컨벤션
 
@@ -126,30 +601,97 @@ const getData = async () => {};
 
 ### 컴포넌트 파일 구조
 
+#### 클라이언트 컴포넌트 구조
+
 ```typescript
-// Button/Button.tsx
-import React from 'react';
+// components/ui/Button.tsx
+'use client';
+
 import { cn } from '@/lib/utils';
 
-interface ButtonProps {
-  // Props 정의
-}
-
-export const Button: React.FC<ButtonProps> = ({ ... }) => {
-  // 컴포넌트 로직
+type Props = {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  onClick?: () => void;
 };
 
-// Button/index.ts
-export { Button } from './Button';
-export type { ButtonProps } from './Button';
+export const Button = ({
+  children,
+  variant = 'primary',
+  size = 'md',
+  disabled = false,
+  onClick,
+  className,
+  ...props
+}: Props & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+  return (
+    <button
+      className={cn(
+        'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+        'disabled:pointer-events-none disabled:opacity-50',
+        {
+          'bg-primary text-primary-foreground hover:bg-primary/90': variant === 'primary',
+          'bg-secondary text-secondary-foreground hover:bg-secondary/80': variant === 'secondary',
+          'bg-destructive text-destructive-foreground hover:bg-destructive/90': variant === 'danger',
+        },
+        {
+          'h-9 px-3': size === 'sm',
+          'h-10 px-4 py-2': size === 'md',
+          'h-11 px-8': size === 'lg',
+        },
+        className
+      )}
+      disabled={disabled}
+      onClick={onClick}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
 ```
 
-### 컴포넌트 분리 원칙
+#### 서버 컴포넌트 구조 (page.tsx)
 
-1. **단일 책임 원칙**: 하나의 컴포넌트는 하나의 책임만 가져야 함
-2. **재사용성**: 가능한 한 재사용 가능하게 설계
-3. **합성**: 상속보다는 합성을 우선
-4. **불변성**: Props는 불변해야 함
+```typescript
+// app/about/page.tsx
+import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+
+export default function AboutPage() {
+  return (
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-6">About Us</h1>
+      <Card>
+        <CardHeader>
+          <CardTitle>회사 소개</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>회사에 대한 설명...</p>
+          <Button>자세히 보기</Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+
+#### 컴포넌트 분리 원칙
+
+1. **클라이언트/서버 분리**:
+   - 클라이언트 컴포넌트: `'use client'` 지시어 사용, 상태나 이벤트 핸들러 필요
+   - 서버 컴포넌트: page.tsx 파일만, 데이터 페칭이나 정적 렌더링
+
+2. **단일 책임 원칙**: 하나의 컴포넌트는 하나의 책임만 가져야 함
+
+3. **재사용성**: 가능한 한 재사용 가능하게 설계
+
+4. **합성**: 상속보다는 합성을 우선
+
+5. **불변성**: Props는 불변해야 함
 
 ## 🔄 상태 관리
 
@@ -175,14 +717,22 @@ const [state, setState] = useState({
 // stores/userStore.ts
 import { create } from 'zustand';
 
-interface UserState {
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+type UserState = {
   user: User | null;
   isLoading: boolean;
   error: string | null;
   setUser: (user: User | null) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
-}
+};
 
 export const useUserStore = create<UserState>(set => ({
   user: null,
@@ -202,16 +752,24 @@ export const useUserStore = create<UserState>(set => ({
 // lib/api/users.ts
 import { supabase } from '@/lib/supabase';
 
-export interface CreateUserData {
+export type CreateUserData = {
   name: string;
   email: string;
   password: string;
-}
+};
 
-export interface UpdateUserData {
+export type UpdateUserData = {
   name?: string;
   email?: string;
-}
+};
+
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
 
 export const userApi = {
   // 사용자 목록 조회
@@ -263,7 +821,22 @@ export const userApi = {
 import { useState, useEffect } from 'react';
 import { userApi } from '@/lib/api/users';
 
-export const useUsers = () => {
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+type UseUsersReturn = {
+  users: User[];
+  isLoading: boolean;
+  error: string | null;
+  refetch: () => Promise<void>;
+};
+
+export const useUsers = (): UseUsersReturn => {
   const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -304,15 +877,15 @@ export const useUsers = () => {
 // components/ErrorBoundary.tsx
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 
-interface Props {
+type Props = {
   children: ReactNode;
   fallback?: ReactNode;
-}
+};
 
-interface State {
+type State = {
   hasError: boolean;
   error?: Error;
-}
+};
 
 export class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
@@ -358,7 +931,9 @@ export class ApiError extends Error {
   }
 }
 
-export const handleApiError = (error: unknown): string => {
+type ErrorHandler = (error: unknown) => string;
+
+export const handleApiError: ErrorHandler = error => {
   if (error instanceof ApiError) {
     return error.message;
   }
@@ -377,7 +952,12 @@ export const handleApiError = (error: unknown): string => {
 
 ```typescript
 // ✅ 좋은 예
-export const UserCard = React.memo<UserCardProps>(({ user, onEdit }) => {
+type Props = {
+  user: User;
+  onEdit: (id: string) => void;
+};
+
+export const UserCard = React.memo<Props>(({ user, onEdit }) => {
   return (
     <div className="user-card">
       <h3>{user.name}</h3>
@@ -394,7 +974,12 @@ UserCard.displayName = 'UserCard';
 
 ```typescript
 // ✅ 좋은 예
-const UserList: React.FC<UserListProps> = ({ users, onUserSelect }) => {
+type Props = {
+  users: User[];
+  onUserSelect: (userId: string) => void;
+};
+
+const UserList = ({ users, onUserSelect }: Props) => {
   const sortedUsers = useMemo(() => {
     return users.sort((a, b) => a.name.localeCompare(b.name));
   }, [users]);
@@ -423,7 +1008,13 @@ const UserList: React.FC<UserListProps> = ({ users, onUserSelect }) => {
 // ✅ 좋은 예
 import Image from 'next/image';
 
-export const Avatar: React.FC<AvatarProps> = ({ src, alt, size = 40 }) => {
+type Props = {
+  src: string;
+  alt: string;
+  size?: number;
+};
+
+export const Avatar = ({ src, alt, size = 40 }: Props) => {
   return (
     <Image
       src={src}
@@ -466,7 +1057,11 @@ const validateUserData = (data: unknown): UserFormData => {
 
 ```typescript
 // ✅ 좋은 예
-const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
+type Props = {
+  user: User;
+};
+
+const UserProfile = ({ user }: Props) => {
   return (
     <div>
       <h1>{user.name}</h1>
@@ -476,7 +1071,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
 };
 
 // ❌ 나쁜 예
-const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
+const UserProfile = ({ user }: Props) => {
   return (
     <div>
       <h1 dangerouslySetInnerHTML={{ __html: user.name }} />
@@ -494,6 +1089,12 @@ const UserProfile: React.FC<UserProfileProps> = ({ user }) => {
 // Button.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Button } from './Button';
+
+type Props = {
+  children: React.ReactNode;
+  onClick?: () => void;
+  disabled?: boolean;
+};
 
 describe('Button', () => {
   it('renders with correct text', () => {
