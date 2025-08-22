@@ -7,6 +7,7 @@ interface SectionProps {
   background?: 'white' | 'gray' | 'blue' | 'gradient';
   padding?: 'sm' | 'md' | 'lg' | 'xl';
   container?: boolean;
+  id?: string;
 }
 
 export default function Section({
@@ -15,6 +16,7 @@ export default function Section({
   background = 'white',
   padding = 'lg',
   container = true,
+  id,
 }: SectionProps) {
   const backgrounds = {
     white: 'bg-white',
@@ -39,6 +41,7 @@ export default function Section({
   if (container) {
     return (
       <section
+        id={id}
         className={cn(paddings[padding], backgrounds[background], className)}
       >
         <div className='max-w-6xl mx-auto px-4'>{children}</div>
@@ -48,6 +51,7 @@ export default function Section({
 
   return (
     <section
+      id={id}
       className={cn(paddings[padding], backgrounds[background], className)}
     >
       {children}

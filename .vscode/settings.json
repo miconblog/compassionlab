@@ -37,5 +37,8 @@
     "**/dist": true,
     "**/build": true,
     "**/.git": true
-  }
+  },
+  "cSpell.words": [
+    "supabase"
+  ]
 } 

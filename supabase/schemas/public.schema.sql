@@ -1,5 +1,12 @@
--- Supabase 데이터베이스 스키마
+-- Supabase 데이터베이스 스키마 (개발용 - 완전 재생성)
 -- 이 파일을 Supabase SQL Editor에서 실행하여 테이블을 생성하세요
+
+-- 기존 테이블 및 관련 객체 삭제 (개발 초기 단계용)
+DROP TRIGGER IF EXISTS update_applications_updated_at ON applications;
+DROP TRIGGER IF EXISTS update_inquiries_updated_at ON inquiries;
+DROP FUNCTION IF EXISTS update_updated_at_column();
+DROP TABLE IF EXISTS applications CASCADE;
+DROP TABLE IF EXISTS inquiries CASCADE;
 
 -- 프로그램 신청 테이블
 CREATE TABLE applications (
@@ -31,19 +38,19 @@ CREATE TABLE inquiries (
 ALTER TABLE applications ENABLE ROW LEVEL SECURITY;
 ALTER TABLE inquiries ENABLE ROW LEVEL SECURITY;
 
--- 관리자만 모든 데이터를 볼 수 있도록 정책 설정
-CREATE POLICY "관리자만 모든 신청서 조회 가능" ON applications
-  FOR ALL USING (auth.role() = 'authenticated');
-
-CREATE POLICY "관리자만 모든 문의 조회 가능" ON inquiries
-  FOR ALL USING (auth.role() = 'authenticated');
-
--- 인증되지 않은 사용자는 삽입만 가능
-CREATE POLICY "인증되지 않은 사용자 신청서 삽입 가능" ON applications
+-- 모든 사용자가 삽입 가능 (웹사이트 폼용)
+CREATE POLICY "모든 사용자 신청서 삽입 가능" ON applications
   FOR INSERT WITH CHECK (true);
 
-CREATE POLICY "인증되지 않은 사용자 문의 삽입 가능" ON inquiries
+CREATE POLICY "모든 사용자 문의 삽입 가능" ON inquiries
   FOR INSERT WITH CHECK (true);
+
+-- 인증된 사용자만 조회 가능 (관리자용)
+CREATE POLICY "인증된 사용자 신청서 조회 가능" ON applications
+  FOR SELECT USING (auth.role() = 'authenticated');
+
+CREATE POLICY "인증된 사용자 문의 조회 가능" ON inquiries
+  FOR SELECT USING (auth.role() = 'authenticated');
 
 -- 인덱스 생성 (성능 최적화)
 CREATE INDEX idx_applications_created_at ON applications(created_at DESC);
