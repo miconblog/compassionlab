@@ -1,6 +1,21 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Section, { SectionHeader } from '@/components/ui/Section';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '해외 연수 - 컴패션랩',
+  description:
+    '세계 최고의 SEE Learning 기관들과 함께하는 글로벌 교육 경험. Emory University, UBC 등 해외 파트너십을 통한 연수 프로그램을 제공합니다.',
+  keywords:
+    '해외 연수, 글로벌 프로그램, SEE Learning, Emory University, UBC, 국제 교류, 해외 파트너십',
+  openGraph: {
+    title: '해외 연수 - 컴패션랩',
+    description: '세계 최고의 SEE Learning 기관들과 함께하는 글로벌 교육 경험',
+    type: 'website',
+    locale: 'ko_KR',
+  },
+};
 
 export default function GlobalProgramsPage() {
   const partnerSchools = [

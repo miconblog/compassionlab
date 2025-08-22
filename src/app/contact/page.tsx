@@ -1,7 +1,21 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Section, { SectionHeader } from '@/components/ui/Section';
+import type { Metadata } from 'next';
 import { ContactTabs } from './components/ContactTabs';
+
+export const metadata: Metadata = {
+  title: '문의 및 신청 - 컴패션랩',
+  description:
+    '컴패션랩 프로그램 신청 및 문의. 강릉시 소재 교육 전문 회사의 맞춤형 프로그램에 대한 상담과 신청을 받습니다.',
+  keywords: '프로그램 신청, 문의, 상담, 강릉교육, 컴패션랩 연락처',
+  openGraph: {
+    title: '문의 및 신청 - 컴패션랩',
+    description: '프로그램 신청 및 문의',
+    type: 'website',
+    locale: 'ko_KR',
+  },
+};
 
 export default function ContactPage() {
   const faqs = [

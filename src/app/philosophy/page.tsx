@@ -2,6 +2,22 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Section, { SectionHeader } from '@/components/ui/Section';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '교육 철학 - 컴패션랩',
+  description:
+    'SEE Learning®과 NVC 모델을 기반으로 한 컴패션랩의 교육 철학. 몸과 마음의 통합적 성장을 위한 과학적 접근법을 소개합니다.',
+  keywords:
+    '교육 철학, SEE Learning, NVC 모델, 비폭력대화, 요가 명상, 통합적 성장, 과학적 교육',
+  openGraph: {
+    title: '교육 철학 - 컴패션랩',
+    description: 'SEE Learning®과 NVC 모델 기반 교육 철학',
+    type: 'website',
+    locale: 'ko_KR',
+  },
+};
+
 export default function PhilosophyPage() {
   return (
     <div className='min-h-screen'>

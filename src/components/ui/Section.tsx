@@ -20,9 +20,9 @@ export default function Section({
 }: SectionProps) {
   const backgrounds = {
     white: 'bg-white',
-    gray: 'bg-gray-50',
-    blue: 'bg-blue-50',
-    gradient: 'bg-gradient-to-br from-blue-50 to-indigo-100',
+    gray: 'bg-amber-50',
+    blue: 'bg-orange-50',
+    gradient: 'bg-gradient-to-br from-amber-50 to-orange-100',
   };
 
   const paddings = {
@@ -74,9 +74,9 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className={cn('mb-16', centered && 'text-center', className)}>
-      <h2 className='text-4xl font-bold text-gray-900 mb-4'>{title}</h2>
+      <h2 className='text-4xl font-bold text-amber-900 mb-4'>{title}</h2>
       {subtitle && (
-        <p className='text-xl text-gray-600 max-w-3xl mx-auto'>{subtitle}</p>
+        <p className='text-xl text-amber-700 max-w-3xl mx-auto'>{subtitle}</p>
       )}
     </div>
   );

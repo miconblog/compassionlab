@@ -1,3 +1,19 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '소개 - 컴패션랩',
+  description:
+    '강릉시 소재 교육 전문 회사 컴패션랩의 소개. SEE Learning® 전문가들과 현장 경험을 바탕으로 한 맞춤형 교육 프로그램을 제공합니다.',
+  keywords:
+    '컴패션랩 소개, 강릉교육, SEE Learning 전문가, 교육 프로그램, 현장 경험',
+  openGraph: {
+    title: '소개 - 컴패션랩',
+    description: '강릉시 소재 교육 전문 회사 컴패션랩의 소개',
+    type: 'website',
+    locale: 'ko_KR',
+  },
+};
+
 export default function AboutPage() {
   return (
     <div className='min-h-screen'>
@@ -19,7 +35,7 @@ export default function AboutPage() {
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             <div>
               <h2 className='text-4xl font-bold text-gray-900 mb-6'>
-                우리의 미션
+                우리의 비전
               </h2>
               <p className='text-lg text-gray-600 mb-6'>
                 자기 자비와 자기 돌봄을 통해 몸과 마음 모두 건강한 개인 만들기

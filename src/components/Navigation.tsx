@@ -30,10 +30,10 @@ export default function Navigation() {
         <div className='flex justify-between items-center h-16'>
           {/* Logo */}
           <Link href='/' className='flex items-center space-x-2'>
-            <div className='w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center'>
+            <div className='w-8 h-8 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg flex items-center justify-center'>
               <span className='text-white font-bold text-sm'>컴</span>
             </div>
-            <span className='text-xl font-bold text-gray-900'>컴패션랩</span>
+            <span className='text-xl font-bold text-amber-900'>컴패션랩</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -44,8 +44,8 @@ export default function Navigation() {
                 href={item.href}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   isActive(item.href)
-                    ? 'text-blue-600 border-b-2 border-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-amber-600 border-b-2 border-amber-600'
+                    : 'text-amber-700 hover:text-amber-600'
                 }`}
               >
                 {item.name}
@@ -57,7 +57,10 @@ export default function Navigation() {
           <div className='md:hidden'>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600'
+              className='text-amber-700 hover:text-amber-600 focus:outline-none focus:text-amber-600'
+              aria-label={isMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
+              aria-expanded={isMenuOpen}
+              aria-controls='mobile-menu'
             >
               <svg
                 className='h-6 w-6'
@@ -87,7 +90,12 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className='md:hidden'>
+          <div
+            className='md:hidden'
+            id='mobile-menu'
+            role='navigation'
+            aria-label='모바일 메뉴'
+          >
             <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t'>
               {menuItems.map(item => (
                 <Link
@@ -95,8 +103,8 @@ export default function Navigation() {
                   href={item.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     isActive(item.href)
-                      ? 'text-blue-600 bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                      ? 'text-amber-600 bg-amber-50'
+                      : 'text-amber-700 hover:text-amber-600 hover:bg-amber-50'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
