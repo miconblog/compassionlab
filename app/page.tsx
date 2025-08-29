@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-
-import ImageCarousel from '@/components/ImageCarousel';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: '컴패션랩 - 자기 자비를 통한 자기 돌봄의 교육',
@@ -48,14 +47,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="relative py-20 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-amber-300/30 to-orange-300/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/50 to-gray-100/50"></div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-amber-800 mb-6">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">
-              컴패션랩
-            </span>
+          <h1 className="text-5xl md:text-7xl font-bold text-slate-800 mb-6">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-gray-700">컴패션랩</span>
           </h1>
-          <p className="text-xl md:text-2xl text-amber-700 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
             자기 자비(Self-Compassion)를 통해 자기 돌봄을 실천하고
             <br />
             서로를 도우며 건강하게 관계 맺는 사회
@@ -67,13 +64,13 @@ export default function Home() {
       <section id="about" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-900 mb-4">교육 전문 회사</h2>
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">교육 전문 회사</h2>
           </div>
 
           {/* 로고 섹션 */}
           <div className="flex justify-center items-center gap-12 mb-16">
             <div className="text-center">
-              <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center mb-4 mx-auto shadow-lg">
+              <div className="w-32 h-32 bg-gradient-to-br from-slate-600 to-slate-700 rounded-lg flex items-center justify-center mb-4 mx-auto shadow-lg">
                 <div className="text-center text-white">
                   <div className="text-xl font-bold mb-1">EMORY</div>
                   <div className="text-xs font-medium">UNIVERSITY</div>
@@ -85,7 +82,7 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <div className="w-32 h-32 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center mb-4 mx-auto shadow-lg">
+              <div className="w-32 h-32 bg-gradient-to-br from-gray-600 to-gray-700 rounded-lg flex items-center justify-center mb-4 mx-auto shadow-lg">
                 <div className="text-center text-white">
                   <div className="text-2xl font-bold mb-1">NVC</div>
                   <div className="text-xs font-medium">비폭력대화</div>
@@ -100,7 +97,7 @@ export default function Home() {
 
           {/* 설명 섹션 */}
           <div className="text-center">
-            <p className="text-xl text-amber-700 max-w-4xl mx-auto">
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto">
               컴패션랩은 에모리 대학교에서 개발한 SEE Learning®과 비폭력대화(NVC) 모델을 요가, 명상 교육과 접목하여
               몸과 마음 모두의 성장을 돕습니다.
             </p>
@@ -109,15 +106,55 @@ export default function Home() {
       </section>
 
       {/* Image Section */}
-      <section className="py-20 bg-amber-50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-amber-800 mb-4">우리의 교육 현장</h2>
-            <p className="text-lg text-amber-600">강릉 현장에서의 실제 교육 활동 모습</p>
+            <h2 className="text-3xl font-bold text-slate-700 mb-4">우리의 교육 현장</h2>
+            <p className="text-lg text-slate-600">강릉 현장에서의 실제 교육 활동 모습</p>
           </div>
 
-          {/* 이미지 캐러셀 */}
-          <ImageCarousel />
+          {/* 교육 현장 이미지들 */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                src: '/images/소개 이미지 3.jpeg',
+                alt: '컴패션랩 교육 활동 1',
+                title: 'SEE Learning® 수업 현장',
+                description: '에모리 대학교에서 개발한 SEE Learning® 프로그램을 통한 사회정서교육',
+              },
+              {
+                src: '/images/소개 이미지 2.jpeg',
+                alt: '컴패션랩 교육 활동 2',
+                title: '요가와 명상 교육',
+                description: '몸과 마음의 균형을 찾는 요가와 명상 활동',
+              },
+              {
+                src: '/images/소개 이미지 3.jpeg',
+                alt: '컴패션랩 교육 활동 3',
+                title: 'NVC 소통 훈련',
+                description: '비폭력대화를 통한 효과적인 소통과 갈등 해결',
+              },
+            ].map((image, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="relative h-64">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-slate-800 mb-2">{image.title}</h3>
+                  <p className="text-sm text-slate-600">{image.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -125,15 +162,15 @@ export default function Home() {
       <section id="philosophy" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-900 mb-4">교육 철학</h2>
-            <p className="text-xl text-amber-600">
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">교육 철학</h2>
+            <p className="text-xl text-slate-600">
               SEE Learning®, NVC, 요가와 명상을 통한 몸과 마음의 통합적 성장 접근법
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center p-6 rounded-lg bg-blue-50">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 rounded-lg bg-slate-50">
+              <div className="w-16 h-16 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -147,8 +184,8 @@ export default function Home() {
               <p className="text-gray-600">신경과학과 심리학 연구에 기반한 검증된 교육 방법론을 적용합니다</p>
             </div>
 
-            <div className="text-center p-6 rounded-lg bg-purple-50">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 rounded-lg bg-gray-50">
+              <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -162,8 +199,8 @@ export default function Home() {
               <p className="text-gray-600">인지적, 정서적, 신체적 영역을 통합하여 전인적 성장을 돕습니다</p>
             </div>
 
-            <div className="text-center p-6 rounded-lg bg-green-50">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 rounded-lg bg-slate-50">
+              <div className="w-16 h-16 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -189,9 +226,9 @@ export default function Home() {
                 에모리 대학교 명상과학 및 공감기반윤리학 센터(CCSCBE)에서 개발되었으며, 전 세계 41개국 이상에서 활용되고
                 있습니다.
               </p>
-              <div className="bg-blue-50 p-6 rounded-lg mb-6">
-                <h4 className="font-semibold text-blue-900 mb-3">핵심 특징</h4>
-                <ul className="text-blue-800 space-y-2">
+              <div className="bg-slate-50 p-6 rounded-lg mb-6">
+                <h4 className="font-semibold text-slate-800 mb-3">핵심 특징</h4>
+                <ul className="text-slate-700 space-y-2">
                   <li>• 3세부터 19세까지 발달 단계별 맞춤형 교육</li>
                   <li>• 신경과학과 심리학 연구에 기반한 과학적 근거</li>
                   <li>• 다양한 문화권에 맞게 현지화 가능</li>
@@ -204,7 +241,7 @@ export default function Home() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">SEE Learning® 구성 요소</h3>
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <span className="text-white font-bold text-sm">1</span>
                   </div>
                   <div>
@@ -214,7 +251,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <span className="text-white font-bold text-sm">2</span>
                   </div>
                   <div>
@@ -224,7 +261,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <span className="text-white font-bold text-sm">3</span>
                   </div>
                   <div>
@@ -234,7 +271,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <span className="text-white font-bold text-sm">4</span>
                   </div>
                   <div>
@@ -249,11 +286,11 @@ export default function Home() {
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="py-20 bg-amber-50">
+      <section id="programs" className="py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-800 mb-4">프로그램</h2>
-            <p className="text-xl text-amber-600">
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">프로그램</h2>
+            <p className="text-xl text-slate-600">
               유아부터 성인까지 각 대상별 맞춤형 프로그램으로 몸과 마음이 모두 건강한 성장을 돕습니다
             </p>
           </div>
@@ -301,24 +338,24 @@ export default function Home() {
               },
             ].map((program, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-100 text-amber-800 mb-4">
+                <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-100 text-slate-700 mb-4">
                   {program.age}
                 </div>
-                <h3 className="text-2xl font-bold text-amber-900 mb-3">{program.title}</h3>
-                <p className="text-amber-700 mb-4">{program.description}</p>
+                <h3 className="text-2xl font-bold text-slate-800 mb-3">{program.title}</h3>
+                <p className="text-slate-600 mb-4">{program.description}</p>
                 <div className="mb-4">
-                  <h4 className="font-semibold text-amber-900 mb-2">주요 특징</h4>
+                  <h4 className="font-semibold text-slate-800 mb-2">주요 특징</h4>
                   <ul className="space-y-1">
                     {program.features.map((feature, idx) => (
-                      <li key={idx} className="text-sm text-amber-700 flex items-start">
-                        <span className="text-amber-500 mr-2">•</span>
+                      <li key={idx} className="text-sm text-slate-600 flex items-start">
+                        <span className="text-slate-500 mr-2">•</span>
                         {feature}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="pt-4 border-t border-amber-100">
-                  <p className="text-sm text-amber-600 mb-3">
+                <div className="pt-4 border-t border-slate-200">
+                  <p className="text-sm text-slate-600 mb-3">
                     <strong>수업 시간:</strong> {program.duration}
                   </p>
                 </div>
@@ -332,15 +369,15 @@ export default function Home() {
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-amber-800 mb-4">문의 및 신청</h2>
-            <p className="text-xl text-amber-600">
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">문의 및 신청</h2>
+            <p className="text-xl text-slate-600">
               강릉 지역의 특성에 맞는 맞춤형 프로그램으로 몸과 마음이 모두 건강한 성장을 경험해보세요
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center p-6 bg-blue-50 rounded-lg">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 bg-slate-50 rounded-lg">
+              <div className="w-16 h-16 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -352,11 +389,11 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">전화 문의</h3>
               <p className="text-gray-600 mb-2">평일 09:00 - 18:00</p>
-              <p className="text-2xl font-bold text-blue-600">033-123-4567</p>
+              <p className="text-2xl font-bold text-slate-600">033-123-4567</p>
             </div>
 
-            <div className="text-center p-6 bg-purple-50 rounded-lg">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 bg-gray-50 rounded-lg">
+              <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -368,11 +405,11 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">이메일 문의</h3>
               <p className="text-gray-600 mb-2">24시간 접수 가능</p>
-              <p className="text-lg font-semibold text-purple-600">info@compassionlab.kr</p>
+              <p className="text-lg font-semibold text-gray-600">info@compassionlab.kr</p>
             </div>
 
-            <div className="text-center p-6 bg-green-50 rounded-lg">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 bg-slate-50 rounded-lg">
+              <div className="w-16 h-16 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -390,7 +427,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">위치</h3>
               <p className="text-gray-600 mb-2">강릉시 교육센터</p>
-              <p className="text-sm text-green-600">강릉시 중앙로 123번길 45</p>
+              <p className="text-sm text-slate-600">강릉시 중앙로 123번길 45</p>
             </div>
           </div>
         </div>
