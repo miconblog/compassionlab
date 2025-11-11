@@ -46,8 +46,12 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       {/* Hero Section */}
-      <section id="home" className="relative py-20 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/50 to-gray-100/50"></div>
+      <section
+        id="home"
+        className="relative py-20 flex items-center justify-center overflow-hidden"
+        style={{ backgroundColor: '#fdf7eb' }}
+      >
+        <div className="absolute inset-0"></div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold text-slate-800 mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-gray-700">컴패션랩</span>
@@ -61,7 +65,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20" style={{ backgroundColor: '#fff5ef' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">교육 전문 회사</h2>
@@ -106,7 +110,7 @@ export default function Home() {
       </section>
 
       {/* Image Section */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20" style={{ backgroundColor: '#fdf7eb' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-700 mb-4">우리의 교육 현장</h2>
@@ -158,135 +162,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Philosophy Section */}
-      <section id="philosophy" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">교육 철학</h2>
-            <p className="text-xl text-slate-600">
-              SEE Learning®, NVC, 요가와 명상을 통한 몸과 마음의 통합적 성장 접근법
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center p-6 rounded-lg bg-slate-50">
-              <div className="w-16 h-16 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">과학적 근거</h3>
-              <p className="text-gray-600">신경과학과 심리학 연구에 기반한 검증된 교육 방법론을 적용합니다</p>
-            </div>
-
-            <div className="text-center p-6 rounded-lg bg-gray-50">
-              <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">통합적 접근</h3>
-              <p className="text-gray-600">인지적, 정서적, 신체적 영역을 통합하여 전인적 성장을 돕습니다</p>
-            </div>
-
-            <div className="text-center p-6 rounded-lg bg-slate-50">
-              <div className="w-16 h-16 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">실천적 도구</h3>
-              <p className="text-gray-600">일상생활에서 바로 적용할 수 있는 구체적인 도구와 방법을 제공합니다</p>
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">SEE Learning®이란?</h3>
-              <p className="text-lg text-gray-600 mb-6">
-                <strong>Social, Emotional, and Ethical Learning</strong>의 약자로, 사회정서윤리학습을 의미합니다. 공감의
-                과학을 사회정서학습에 접목시킨 혁신적인 교육 모델입니다.
-              </p>
-              <p className="text-lg text-gray-600 mb-6">
-                에모리 대학교 명상과학 및 공감기반윤리학 센터(CCSCBE)에서 개발되었으며, 전 세계 41개국 이상에서 활용되고
-                있습니다.
-              </p>
-              <div className="bg-slate-50 p-6 rounded-lg mb-6">
-                <h4 className="font-semibold text-slate-800 mb-3">핵심 특징</h4>
-                <ul className="text-slate-700 space-y-2">
-                  <li>• 3세부터 19세까지 발달 단계별 맞춤형 교육</li>
-                  <li>• 신경과학과 심리학 연구에 기반한 과학적 근거</li>
-                  <li>• 다양한 문화권에 맞게 현지화 가능</li>
-                  <li>• CASEL 최고 등급 인증 프로그램</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">SEE Learning® 구성 요소</h3>
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <span className="text-white font-bold text-sm">1</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">공감의 과학</h4>
-                    <p className="text-gray-600">신경과학적 근거에 기반한 공감 능력 개발과 사회적 연결성 증진</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <span className="text-white font-bold text-sm">2</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">자기 인식</h4>
-                    <p className="text-gray-600">정서적 자각과 자기 조절 능력을 통한 건강한 정서 발달</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <span className="text-white font-bold text-sm">3</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">사회적 연결성</h4>
-                    <p className="text-gray-600">타인과의 건강한 관계 형성과 사회적 기술 발달</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <span className="text-white font-bold text-sm">4</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">윤리적 의사결정</h4>
-                    <p className="text-gray-600">도덕적 추론과 윤리적 판단 능력을 통한 올바른 선택</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Programs Section */}
-      <section id="programs" className="py-20 bg-slate-50">
+      <section id="programs" className="py-20" style={{ backgroundColor: '#fdf7eb' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">프로그램</h2>
@@ -366,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white">
+      <section id="contact" className="py-20" style={{ backgroundColor: '#fff5ef' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">문의 및 신청</h2>

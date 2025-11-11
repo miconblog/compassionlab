@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,7 +12,6 @@ export default function Navigation() {
   const menuItems = [
     { name: '홈', href: '#home' },
     { name: '소개', href: '#about' },
-    { name: '교육철학', href: '#philosophy' },
     { name: '프로그램', href: '#programs' },
     { name: '문의', href: '#contact' },
   ];
@@ -60,10 +60,16 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <button onClick={() => scrollToSection('#home')} className="flex items-center space-x-2 cursor-pointer">
-            <div className="w-8 h-8 bg-gradient-to-r from-gray-800 to-black rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">컴</span>
+            <div className="relative w-12 h-12 flex-shrink-0">
+              <Image
+                src="/logo.svg"
+                alt="컴패션랩 로고"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
-            <span className="text-xl font-bold text-gray-900">컴패션랩</span>
+            <span className="text-xl font-bold text-gray-900">Compassion Lab</span>
           </button>
 
           {/* Desktop Menu */}
