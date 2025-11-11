@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
+import { CloudBackground } from '@/components/CloudBackground';
+import { GroundElements } from '@/components/GroundElements';
+
 export const metadata: Metadata = {
   title: '컴패션랩 - 자기 자비를 통한 자기 돌봄의 교육',
   description:
@@ -42,15 +45,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <CloudBackground />
+      <GroundElements />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       {/* Hero Section */}
-      <section
-        id="home"
-        className="relative py-20 flex items-center justify-center overflow-hidden"
-        style={{ backgroundColor: '#fdf7eb' }}
-      >
+      <section id="home" className="relative py-20 flex items-center justify-center overflow-hidden z-10">
         <div className="absolute inset-0"></div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6">
@@ -65,7 +66,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20" style={{ backgroundColor: '#fff5ef' }}>
+      <section id="about" className="py-20 relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">비전</h2>
@@ -99,7 +100,7 @@ export default function Home() {
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="py-20" style={{ backgroundColor: '#fdf7eb' }}>
+      <section id="programs" className="py-20 relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">프로그램</h2>
@@ -149,7 +150,7 @@ export default function Home() {
               { src: '/images/5_class_activity_4.JPG', alt: '교육 활동 4' },
             ].map((image, index) => (
               <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg">
-                <div className="relative h-64">
+                <div className="relative w-full aspect-square">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -166,7 +167,13 @@ export default function Home() {
           <div className="bg-white p-8 rounded-lg shadow-lg mb-8">
             <div className="flex items-start gap-6">
               <div className="relative w-32 h-32 flex-shrink-0">
-                <Image src="/images/see_learning_logo.webp" alt="SEE Learning 로고" fill className="object-contain" />
+                <Image
+                  src="/images/see_learning_logo.webp"
+                  alt="SEE Learning 로고"
+                  fill
+                  className="object-contain"
+                  sizes="128px"
+                />
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-4">SEE Learning®</h3>
@@ -182,7 +189,7 @@ export default function Home() {
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <div className="flex items-start gap-6">
               <div className="relative w-32 h-32 flex-shrink-0">
-                <Image src="/images/nvc_logo.png" alt="NVC 로고" fill className="object-contain" />
+                <Image src="/images/nvc_logo.png" alt="NVC 로고" fill className="object-contain" sizes="128px" />
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-4">NVC & 스마일 키퍼스</h3>
@@ -197,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* Expected Effects Section */}
-      <section className="py-20" style={{ backgroundColor: '#fff5ef' }}>
+      <section className="py-20 relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">프로그램을 통한 기대효과</h2>
@@ -221,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* Future Plans Section */}
-      <section className="py-20" style={{ backgroundColor: '#fdf7eb' }}>
+      <section className="py-20 relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">컴패션랩 향후 사업 계획</h2>
@@ -241,7 +248,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20" style={{ backgroundColor: '#fff5ef' }}>
+      <section id="contact" className="py-20 relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">문의 및 신청</h2>
@@ -308,7 +315,7 @@ export default function Home() {
         </div>
       </section>
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-12 relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
