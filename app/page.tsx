@@ -3,6 +3,7 @@ import Image from 'next/image';
 
 import { CloudBackground } from '@/components/CloudBackground';
 import { GroundElements } from '@/components/GroundElements';
+import { ImageGallery } from '@/components/ImageGallery';
 
 export const metadata: Metadata = {
   title: '컴패션랩 - 자기 자비를 통한 자기 돌봄의 교육',
@@ -141,27 +142,7 @@ export default function Home() {
           </div>
 
           {/* 교육 현장 이미지들 */}
-          <div className="grid md:grid-cols-5 gap-4 mb-16">
-            {[
-              { src: '/images/1_class_activity_1.jpeg', alt: '교육 활동 1' },
-              { src: '/images/2_class_activity_2.jpeg', alt: '교육 활동 2' },
-              { src: '/images/3_class_arts.jpeg', alt: '미술 활동' },
-              { src: '/images/4_class_activity_3.JPG', alt: '교육 활동 3' },
-              { src: '/images/5_class_activity_4.JPG', alt: '교육 활동 4' },
-            ].map((image, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg">
-                <div className="relative w-full aspect-square">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 20vw"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          <ImageGallery />
 
           {/* SEE Learning 설명 */}
           <div className="bg-white p-8 rounded-lg shadow-lg mb-8">
