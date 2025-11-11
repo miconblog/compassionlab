@@ -53,11 +53,11 @@ export default function Home() {
       >
         <div className="absolute inset-0"></div>
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-slate-800 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-gray-700">컴패션랩</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
-            자기 자비(Self-Compassion)를 통해 자기 돌봄을 실천하고
+            자기연민(Self-Compassion)을 통해 자기 돌봄을 실천하고
             <br />
             서로를 도우며 건강하게 관계 맺는 사회
           </p>
@@ -68,96 +68,32 @@ export default function Home() {
       <section id="about" className="py-20" style={{ backgroundColor: '#fff5ef' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">교육 전문 회사</h2>
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">비전</h2>
           </div>
 
-          {/* 로고 섹션 */}
-          <div className="flex justify-center items-center gap-12 mb-16">
-            <div className="text-center">
-              <div className="w-32 h-32 bg-gradient-to-br from-slate-600 to-slate-700 rounded-lg flex items-center justify-center mb-4 mx-auto shadow-lg">
-                <div className="text-center text-white">
-                  <div className="text-xl font-bold mb-1">EMORY</div>
-                  <div className="text-xs font-medium">UNIVERSITY</div>
-                  <div className="text-xs mt-1 opacity-90">Center for Contemplative Science</div>
-                  <div className="text-xs opacity-90">& Compassion-Based Ethics</div>
-                </div>
-              </div>
-              <p className="text-sm text-gray-600">SEE Learning® 개발기관</p>
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-slate-800 mb-3">
+                자기 연민과 자기 돌봄을 통해 몸과 마음 모두 건강한 개인
+              </h3>
             </div>
-
-            <div className="text-center">
-              <div className="w-32 h-32 bg-gradient-to-br from-gray-600 to-gray-700 rounded-lg flex items-center justify-center mb-4 mx-auto shadow-lg">
-                <div className="text-center text-white">
-                  <div className="text-2xl font-bold mb-1">NVC</div>
-                  <div className="text-xs font-medium">비폭력대화</div>
-                  <div className="text-xs font-medium">Nonviolent</div>
-                  <div className="text-xs font-medium">Communication</div>
-                  <div className="text-xs mt-1 opacity-90">한국NVC센터</div>
-                </div>
-              </div>
-              <p className="text-sm text-gray-600">마셜 로젠버그 개발</p>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-slate-800 mb-3">소통하고 성장하는 따뜻한 가정</h3>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-slate-800 mb-3">
+                가정과 학교가 함께 하는 사회, 정서, 인성 교육
+              </h3>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-slate-800 mb-3">성인 및 지역 사회를 위한 교육</h3>
             </div>
           </div>
 
-          {/* 설명 섹션 */}
           <div className="text-center">
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              컴패션랩은 에모리 대학교에서 개발한 SEE Learning®과 비폭력대화(NVC) 모델을 요가, 명상 교육과 접목하여
-              몸과 마음 모두의 성장을 돕습니다.
+              사회, 정서, 인성 교육을 전문으로 하는 강사들이 강릉에서 함께 하고 있습니다.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Image Section */}
-      <section className="py-20" style={{ backgroundColor: '#fdf7eb' }}>
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-700 mb-4">우리의 교육 현장</h2>
-            <p className="text-lg text-slate-600">강릉 현장에서의 실제 교육 활동 모습</p>
-          </div>
-
-          {/* 교육 현장 이미지들 */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                src: '/images/소개 이미지 3.jpeg',
-                alt: '컴패션랩 교육 활동 1',
-                title: 'SEE Learning® 수업 현장',
-                description: '에모리 대학교에서 개발한 SEE Learning® 프로그램을 통한 사회정서교육',
-              },
-              {
-                src: '/images/소개 이미지 2.jpeg',
-                alt: '컴패션랩 교육 활동 2',
-                title: '요가와 명상 교육',
-                description: '몸과 마음의 균형을 찾는 요가와 명상 활동',
-              },
-              {
-                src: '/images/소개 이미지 3.jpeg',
-                alt: '컴패션랩 교육 활동 3',
-                title: 'NVC 소통 훈련',
-                description: '비폭력대화를 통한 효과적인 소통과 갈등 해결',
-              },
-            ].map((image, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="relative h-64">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-slate-800 mb-2">{image.title}</h3>
-                  <p className="text-sm text-slate-600">{image.description}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -167,77 +103,139 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-800 mb-4">프로그램</h2>
-            <p className="text-xl text-slate-600">
-              유아부터 성인까지 각 대상별 맞춤형 프로그램으로 몸과 마음이 모두 건강한 성장을 돕습니다
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold text-slate-800 mb-4">키즈 요가</h3>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start">
+                  <span className="text-slate-500 mr-2">•</span>
+                  <span>아이들 눈높이에 맞춰 재미있는 요가 수업을 진행합니다.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-slate-500 mr-2">•</span>
+                  <span>씨러닝을 활용한 정서 교육을 함께 합니다.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-slate-500 mr-2">•</span>
+                  <span>장소 상황에 따라 놀이체육으로 대체하여 수업할 수 있습니다.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold text-slate-800 mb-4">마음 놀이터</h3>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start">
+                  <span className="text-slate-500 mr-2">•</span>
+                  <span>씨러닝, NVC, 스마일 키퍼스를 활용한 사회, 정서, 인성 교육에 맞춘 수업입니다.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-slate-500 mr-2">•</span>
+                  <span>게임, 놀이, 미술 활동을 연계하여 학생들의 흥미를 이끕니다.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 교육 현장 이미지들 */}
+          <div className="grid md:grid-cols-5 gap-4 mb-16">
             {[
-              {
-                title: '유아 프로그램',
-                age: '3-6세',
-                description: '자연스러운 놀이를 통해 자기 인식과 공감 능력을 기르는 프로그램',
-                features: [
-                  '놀이 중심의 자기 인식 활동',
-                  '감정 표현과 이해하기',
-                  '친구와의 관계 맺기',
-                  '요가와 명상 기초 체험',
-                ],
-                duration: '주 2회, 30분씩',
-                color: 'blue',
-              },
-              {
-                title: '초등학생 프로그램',
-                age: '7-12세',
-                description: 'SEE Learning® 기반의 체계적인 사회정서교육으로 건강한 성장을 돕는 프로그램',
-                features: [
-                  'SEE Learning® 기초 커리큘럼',
-                  '자기 돌봄과 자기 자비 실천',
-                  '갈등 해결과 소통 기술',
-                  '요가와 명상 정기 활동',
-                ],
-                duration: '주 3회, 45분씩',
-                color: 'purple',
-              },
-              {
-                title: '중학생 프로그램',
-                age: '13-15세',
-                description: '사춘기 시기의 정서적 안정과 사회적 기술 발달을 위한 맞춤형 프로그램',
-                features: [
-                  'SEE Learning® 심화 과정',
-                  '스트레스 관리와 정서 조절',
-                  '또래 관계와 갈등 해결',
-                  '자기 효능감과 동기 부여',
-                ],
-                duration: '주 2회, 60분씩',
-                color: 'green',
-              },
-            ].map((program, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-slate-100 text-slate-700 mb-4">
-                  {program.age}
-                </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-3">{program.title}</h3>
-                <p className="text-slate-600 mb-4">{program.description}</p>
-                <div className="mb-4">
-                  <h4 className="font-semibold text-slate-800 mb-2">주요 특징</h4>
-                  <ul className="space-y-1">
-                    {program.features.map((feature, idx) => (
-                      <li key={idx} className="text-sm text-slate-600 flex items-start">
-                        <span className="text-slate-500 mr-2">•</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="pt-4 border-t border-slate-200">
-                  <p className="text-sm text-slate-600 mb-3">
-                    <strong>수업 시간:</strong> {program.duration}
-                  </p>
+              { src: '/images/1_class_activity_1.jpeg', alt: '교육 활동 1' },
+              { src: '/images/2_class_activity_2.jpeg', alt: '교육 활동 2' },
+              { src: '/images/3_class_arts.jpeg', alt: '미술 활동' },
+              { src: '/images/4_class_activity_3.JPG', alt: '교육 활동 3' },
+              { src: '/images/5_class_activity_4.JPG', alt: '교육 활동 4' },
+            ].map((image, index) => (
+              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg">
+                <div className="relative h-64">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 20vw"
+                  />
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* SEE Learning 설명 */}
+          <div className="bg-white p-8 rounded-lg shadow-lg mb-8">
+            <div className="flex items-start gap-6">
+              <div className="relative w-32 h-32 flex-shrink-0">
+                <Image src="/images/see_learning_logo.webp" alt="SEE Learning 로고" fill className="object-contain" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">SEE Learning®</h3>
+                <p className="text-slate-600">
+                  SEE는 Social, Emotional, Ethical의 약자로, 미국 최상위권 대학인 에모리 대학에서 대니얼 골먼 등
+                  권위있는 전문가들과 함께 개발한 사회, 정서, 인성 교육 프로그램입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* NVC 설명 */}
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            <div className="flex items-start gap-6">
+              <div className="relative w-32 h-32 flex-shrink-0">
+                <Image src="/images/nvc_logo.png" alt="NVC 로고" fill className="object-contain" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-800 mb-4">NVC & 스마일 키퍼스</h3>
+                <p className="text-slate-600">
+                  NVC는 비폭력대화의 약자로 서로의 마음을 존중하며 진심으로 연결되는 대화 방식을 배우는 교육입니다.
+                  스마일 키퍼스는 NVC의 철학을 바탕으로 만든 공감, 소통 중심의 인성교육 프로그램입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expected Effects Section */}
+      <section className="py-20" style={{ backgroundColor: '#fff5ef' }}>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">프로그램을 통한 기대효과</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <p className="text-slate-600">요가와 놀이체육 활동으로 튼튼한 몸을 기릅니다.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <p className="text-slate-600">감정조절 및 회복 탄력 기술을 배워 마음도 건강해집니다.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <p className="text-slate-600">주의 집중력 훈련을 통해 학업 성취도 및 자기 주도 학습에 기여합니다.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <p className="text-slate-600">공감과 소통을 배워 학교 폭력을 예방합니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Future Plans Section */}
+      <section className="py-20" style={{ backgroundColor: '#fdf7eb' }}>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-800 mb-4">컴패션랩 향후 사업 계획</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-slate-800 mb-3">전문강사 양성 수업 개설</h3>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold text-slate-800 mb-3">
+                해외에 있는 학교와 연계하여 방학 중 해외 연수 및 해외 강사 초청 프로그램 운영
+              </h3>
+            </div>
           </div>
         </div>
       </section>
@@ -265,8 +263,8 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">전화 문의</h3>
-              <p className="text-gray-600 mb-2">평일 09:00 - 18:00</p>
-              <p className="text-2xl font-bold text-slate-600">033-123-4567</p>
+              <p className="text-gray-600 mb-2">평일 10:00 - 17:00</p>
+              <p className="text-2xl font-bold text-slate-600">010-3500-0438</p>
             </div>
 
             <div className="text-center p-6 bg-gray-50 rounded-lg">
@@ -282,7 +280,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">이메일 문의</h3>
               <p className="text-gray-600 mb-2">24시간 접수 가능</p>
-              <p className="text-lg font-semibold text-gray-600">info@compassionlab.kr</p>
+              <p className="text-lg font-semibold text-gray-600">mnlbluese@gmail.com</p>
             </div>
 
             <div className="text-center p-6 bg-slate-50 rounded-lg">
@@ -303,8 +301,8 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">위치</h3>
-              <p className="text-gray-600 mb-2">강릉시 교육센터</p>
-              <p className="text-sm text-slate-600">강릉시 중앙로 123번길 45</p>
+              <p className="text-gray-600 mb-2">강원특별자치도 강릉시</p>
+              <p className="text-sm text-slate-600">사천면 산대월길 113-17</p>
             </div>
           </div>
         </div>
@@ -316,40 +314,33 @@ export default function Home() {
             <div>
               <h3 className="text-2xl font-bold mb-4">컴패션랩</h3>
               <p className="text-gray-400">
-                강릉시 소재 교육 전문 회사
-                <br />
-                자기 자비를 통해 자기 돌봄을 실천하고 서로를 도우며 건강하게 관계 맺는 사회
+                자기연민(Self-Compassion)을 통해 자기 돌봄을 실천하고 서로를 도우며 건강하게 관계 맺는 사회
               </p>
             </div>
 
             <div>
               <h4 className="text-lg font-semibold mb-4">프로그램</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>유아 프로그램</li>
-                <li>초등학생 프로그램</li>
-                <li>중학생 프로그램</li>
-                <li>고등학생 프로그램</li>
-                <li>성인 프로그램</li>
+                <li>키즈 요가</li>
+                <li>마음 놀이터</li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4">교육 철학</h4>
+              <h4 className="text-lg font-semibold mb-4">교육 프로그램</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>SEE Learning®</li>
                 <li>NVC(비폭력대화)</li>
-                <li>요가와 명상</li>
-                <li>강릉 현장 경험</li>
+                <li>스마일 키퍼스</li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-lg font-semibold mb-4">연락처</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>강릉시 소재</li>
-                <li>늘봄학교 활동</li>
-                <li>써클활동</li>
-                <li>문의 및 신청</li>
+                <li>전화: 010-3500-0438</li>
+                <li>이메일: mnlbluese@gmail.com</li>
+                <li>주소: 강원특별자치도 강릉시 사천면 산대월길 113-17</li>
               </ul>
             </div>
           </div>
