@@ -6,20 +6,22 @@ import { GroundElements } from '@/components/GroundElements';
 import { ImageGallery } from '@/components/ImageGallery';
 
 export const metadata: Metadata = {
-  title: '컴패션랩 - 자기 자비를 통한 자기 돌봄의 교육',
+  title: '컴패션랩 - 사회, 정서, 인성 교육',
   description:
-    '강릉시 소재 교육 전문 회사. SEE Learning®과 NVC 모델을 응용하여 요가와 명상을 접목한 몸과 마음이 모두 건강한 성장을 돕는 교육을 제공합니다.',
-  keywords: '컴패션랩, 강릉교육, SEE Learning, NVC, 비폭력대화, 요가, 명상, 사회정서교육, 자기돌봄',
+    '강릉시 소재 사회, 정서, 인성 교육 회사. SEE Learning®과 NVC를 활용한 키즈 요가, 마음 놀이터 수업을 제공합니다.',
+  keywords: '컴패션랩, 강릉교육, SEE Learning, NVC, 요가, 마음 놀이터, 사회, 정서, 인성 교육',
   openGraph: {
-    title: '컴패션랩 - 자기 자비를 통한 자기 돌봄의 교육',
-    description: '강릉시 소재 교육 전문 회사. SEE Learning®과 NVC 모델을 응용한 교육',
+    title: '컴패션랩 - 사회, 정서, 인성 교육',
+    description:
+      '강릉시 소재 사회, 정서, 인성 교육 회사. SEE Learning®과 NVC를 활용한 키즈 요가, 마음 놀이터 수업을 제공합니다.',
     type: 'website',
     locale: 'ko_KR',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '컴패션랩 - 자기 자비를 통한 자기 돌봄의 교육',
-    description: '강릉시 소재 교육 전문 회사. SEE Learning®과 NVC 모델을 응용한 교육',
+    title: '컴패션랩 - 사회, 정서, 인성 교육',
+    description:
+      '강릉시 소재 사회, 정서, 인성 교육 회사. SEE Learning®과 NVC를 활용한 키즈 요가, 마음 놀이터 수업을 제공합니다.',
   },
 };
 
@@ -29,7 +31,7 @@ export default function Home() {
     '@type': 'EducationalOrganization',
     name: '컴패션랩',
     description:
-      '강릉시 소재 교육 전문 회사. SEE Learning®과 NVC 모델을 응용하여 요가와 명상을 접목한 몸과 마음이 모두 건강한 성장을 돕는 교육을 제공합니다.',
+      '강릉시 소재 사회, 정서, 인성 교육 회사. SEE Learning®과 NVC를 활용한 키즈 요가, 마음 놀이터 수업을 제공합니다.',
     url: 'https://compassionlab.kr',
     address: {
       '@type': 'PostalAddress',
@@ -42,7 +44,7 @@ export default function Home() {
       contactType: 'customer service',
       areaServed: 'KR',
     },
-    sameAs: ['https://www.facebook.com/compassionlab', 'https://www.instagram.com/compassionlab'],
+    sameAs: [],
   };
 
   return (
@@ -59,7 +61,7 @@ export default function Home() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-gray-700">컴패션랩</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto">
-            자기연민(Self-Compassion)을 통해 자기 돌봄을 실천하고
+            자기 돌봄을 실천하고
             <br />
             서로를 도우며 건강하게 관계 맺는 사회
           </p>
@@ -70,14 +72,12 @@ export default function Home() {
       <section id="about" className="py-20 relative z-10">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-800 mb-4">비전</h2>
+            {/* <h2 className="text-4xl font-bold text-slate-800 mb-4">비전</h2> */}
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-xl font-semibold text-slate-800 mb-3">
-                자기 연민과 자기 돌봄을 통해 몸과 마음 모두 건강한 개인
-              </h3>
+              <h3 className="text-xl font-semibold text-slate-800 mb-3">자기 돌봄을 통해 몸과 마음 모두 건강한 개인</h3>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-slate-800 mb-3">소통하고 성장하는 따뜻한 가정</h3>
@@ -221,7 +221,7 @@ export default function Home() {
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-slate-800 mb-3">
-                해외에 있는 학교와 연계하여 방학 중 해외 연수 및 해외 강사 초청 프로그램 운영
+                방학 중 해외 연수 및 해외 강사 초청 프로그램 운영
               </h3>
             </div>
           </div>
@@ -267,7 +267,6 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">이메일 문의</h3>
-              <p className="text-gray-600 mb-2">24시간 접수 가능</p>
               <p className="text-lg font-semibold text-gray-600">mnlbluese@gmail.com</p>
             </div>
 
@@ -301,9 +300,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-2xl font-bold mb-4">컴패션랩</h3>
-              <p className="text-gray-400">
-                자기연민(Self-Compassion)을 통해 자기 돌봄을 실천하고 서로를 도우며 건강하게 관계 맺는 사회
-              </p>
+              <p className="text-gray-400">자기 돌봄을 실천하고 서로를 도우며 건강하게 관계 맺는 사회</p>
             </div>
 
             <div>

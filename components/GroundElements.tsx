@@ -87,7 +87,7 @@ export const GroundElements = () => {
       </div>
 
       {/* 좌측 미끄럼틀 */}
-      <div className="absolute bottom-[170px] left-[40px] w-[100px] h-[125px] md:bottom-[280px] md:left-[120px] md:w-[150px] md:h-[187px] lg:bottom-[360px] lg:left-[200px] lg:w-[200px] lg:h-[250px]">
+      <div className="absolute bottom-[170px] left-[40px] w-[100px] h-[125px] md:bottom-[280px] md:left-[120px] md:w-[150px] md:h-[187px] lg:bottom-[260px] lg:left-[200px] lg:w-[200px] lg:h-[250px]">
         <Image
           src="/images/slide.png"
           alt="미끄럼틀"
@@ -104,7 +104,7 @@ export const GroundElements = () => {
       </div>
 
       {/* 우측 요가하는 사람 */}
-      <div className="absolute bottom-[180px] right-[30px] w-[90px] h-[110px] md:bottom-[280px] md:right-[120px] md:w-[135px] md:h-[165px] lg:bottom-[360px] lg:right-[200px] lg:w-[180px] lg:h-[220px]">
+      <div className="absolute bottom-[180px] right-[30px] w-[90px] h-[110px] md:bottom-[280px] md:right-[120px] md:w-[135px] md:h-[165px] lg:bottom-[330px] lg:right-[200px] lg:w-[180px] lg:h-[220px]">
         <Image
           src="/images/yoga-person.png"
           alt="요가하는 사람"
