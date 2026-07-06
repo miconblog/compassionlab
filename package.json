@@ -6,8 +6,8 @@
     "dev": "next dev -p 3040",
     "build": "next build",
     "start": "next start -p 3040",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "type-check": "tsc --noEmit"
@@ -35,6 +35,7 @@
     "@types/node": "^24",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
+    "eslint": "^9.39.4",
     "eslint-config-next": "16.2.10",
     "prettier": "^3.9.4",
     "prettier-plugin-embed": "^0.5.1",

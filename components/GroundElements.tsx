@@ -1,14 +1,17 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useSyncExternalStore } from 'react';
+
+// 하이드레이션 이후에만 true (서버/초기 렌더에서는 false) — 잔디 블레이드를 클라이언트에서만 렌더
+const subscribeNoop = () => () => {};
 
 export const GroundElements = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false,
+  );
 
   // 잔디 블레이드 위치를 고정된 값으로 생성
   const grassBlades = useMemo(() => {
